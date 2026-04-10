@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo Realizar una Investigación Cualitativa — IDC</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--amber:#f3a100;--blue:#0072b9;--gray:#555553;--mid:#868686;--white:#ffffff;--dark:#0a0e14;--card:rgba(255,255,255,.04);--border:rgba(255,255,255,.07);--radius:16px}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);min-height:100vh;overflow-x:hidden;line-height:1.6}
+
+/* BG ORBS */
+.bg-orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-orbs span{position:absolute;border-radius:50%;filter:blur(110px);animation:orbF 20s ease-in-out infinite alternate}
+.bg-orbs .o1{width:520px;height:520px;background:rgba(243,161,0,.13);top:-8%;left:-6%}
+.bg-orbs .o2{width:600px;height:600px;background:rgba(0,114,185,.1);bottom:-12%;right:-8%;animation-delay:-7s}
+.bg-orbs .o3{width:300px;height:300px;background:rgba(243,161,0,.07);top:45%;left:35%;animation-delay:-14s}
+@keyframes orbF{0%{transform:translate(0,0) scale(1)}50%{transform:translate(35px,-25px) scale(1.12)}100%{transform:translate(-18px,18px) scale(.93)}}
+
+.wrap{position:relative;z-index:1}
+
+/* HERO */
+.hero{padding:56px 28px 42px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,114,185,.1);border:1px solid rgba(0,114,185,.22);border-radius:50px;padding:6px 18px 6px 14px;font-size:.72rem;font-weight:600;color:var(--blue);margin-bottom:18px;backdrop-filter:blur(6px)}
+.badge .dot-pulse{width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pls 2s ease-in-out infinite}
+@keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.hero h1{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:800;font-size:clamp(1.7rem,4.2vw,2.8rem);line-height:1.14;letter-spacing:-.03em;max-width:780px;margin:0 auto}
+.hero h1 .hl{background:linear-gradient(135deg,var(--amber),#ff8800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{color:var(--mid);margin-top:14px;font-size:.9rem;max-width:640px;margin-left:auto;margin-right:auto}
+.hero .cite{margin-top:12px;font-size:.7rem;color:rgba(255,255,255,.28);font-style:italic}
+.hero .cite a{color:var(--blue);text-decoration:none}
+
+/* PROGRAMS */
+.progs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:0 20px 36px}
+.prog{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:9px;font-size:.74rem;font-weight:600;border:1px solid var(--border);background:var(--card);backdrop-filter:blur(4px);transition:all .3s;cursor:default}
+.prog:hover{border-color:rgba(255,255,255,.18);transform:translateY(-2px);background:rgba(255,255,255,.06)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;padding:10px 20px;backdrop-filter:blur(22px);background:rgba(10,14,20,.88);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-inner{display:flex;justify-content:center;align-items:center;gap:2px;max-width:740px;margin:0 auto;flex-wrap:wrap}
+.ntab{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:9px 20px;border-radius:10px;border:1.5px solid transparent;background:transparent;color:var(--mid);cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:7px}
+.ntab .n{font-size:.62rem;opacity:.5}
+.ntab:hover{color:var(--white);background:rgba(255,255,255,.04)}
+.ntab.on{color:var(--white);background:rgba(243,161,0,.1);border-color:var(--amber);box-shadow:0 0 22px rgba(243,161,0,.1)}
+.ntab.on .n{color:var(--amber);opacity:1}
+.arrow{color:var(--mid);opacity:.25;font-size:.9rem;padding:0 3px}
+
+/* PANELS */
+.pnl{display:none;max-width:1100px;margin:0 auto;padding:36px 22px 56px;animation:fadeIn .45s ease}
+.pnl.on{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* SEC HEADER */
+.sh{margin-bottom:24px;padding-left:18px;position:relative}
+.sh::before{content:'';position:absolute;left:0;top:5px;width:4px;height:calc(100% - 10px);background:linear-gradient(180deg,var(--amber),var(--blue));border-radius:4px}
+.sh .over{font-size:.66rem;color:var(--amber);text-transform:uppercase;letter-spacing:.13em;font-weight:700;margin-bottom:3px}
+.sh h2{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:800;font-size:1.45rem;line-height:1.2}
+.sh .desc{color:var(--mid);font-size:.84rem;margin-top:7px;max-width:720px;line-height:1.65}
+.sh .src{margin-top:7px;font-size:.68rem;color:rgba(255,255,255,.22);font-style:italic}
+
+/* GRID */
+.g{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+
+/* CARD */
+.c{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:all .35s}
+.c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--blue));opacity:0;transition:opacity .3s}
+.c:hover{background:rgba(255,255,255,.065);border-color:rgba(255,255,255,.13);transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.3)}
+.c:hover::before{opacity:1}
+.c .cn{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:800;font-size:2rem;position:absolute;top:12px;right:16px;color:var(--amber);opacity:.07}
+.c h3{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:.98rem;margin-bottom:7px;display:flex;align-items:center;gap:9px}
+.c h3 .d{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.c p{color:var(--mid);font-size:.8rem;line-height:1.6}
+.c .tip{margin-top:9px;font-size:.73rem;padding:9px 13px;background:rgba(243,161,0,.06);border-left:3px solid var(--amber);border-radius:0 7px 7px 0;color:rgba(255,255,255,.65);line-height:1.5}
+.c .cr{margin-top:7px;font-size:.66rem;color:rgba(0,114,185,.55);font-style:italic}
+
+/* PROGRAM TAGS */
+.ptags{margin-top:12px;display:flex;flex-wrap:wrap;gap:5px}
+.pt{font-size:.66rem;padding:3px 9px;border-radius:5px;font-weight:600;border:1px solid rgba(255,255,255,.06)}
+.pt.pub{background:rgba(243,161,0,.07);color:var(--amber);border-color:rgba(243,161,0,.14)}
+.pt.int{background:rgba(0,114,185,.07);color:var(--blue);border-color:rgba(0,114,185,.14)}
+.pt.av{background:rgba(255,140,0,.05);color:#ff9e3d;border-color:rgba(255,140,0,.1)}
+.pt.mod{background:rgba(100,180,255,.05);color:#7dc4ff;border-color:rgba(100,180,255,.1)}
+
+/* STRAT */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:13px;margin-top:18px}
+.sc{background:rgba(0,114,185,.05);border:1px solid rgba(0,114,185,.14);border-radius:13px;padding:20px;transition:all .3s}
+.sc:hover{background:rgba(0,114,185,.1);transform:translateY(-2px);border-color:rgba(0,114,185,.28)}
+.sc h4{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:.86rem;color:var(--blue);margin-bottom:5px}
+.sc p{color:var(--mid);font-size:.76rem;line-height:1.55}
+
+/* BANNER */
+.ban{background:linear-gradient(135deg,rgba(243,161,0,.07),rgba(0,114,185,.05));border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:22px;position:relative;overflow:hidden}
+.ban::after{content:'';position:absolute;top:-25px;right:-25px;width:110px;height:110px;background:radial-gradient(circle,rgba(243,161,0,.1),transparent);border-radius:50%}
+.ban h3{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:1rem;margin-bottom:7px}
+.ban p{color:var(--mid);font-size:.8rem;line-height:1.6;position:relative;z-index:1}
+
+/* CHARTS */
+.clbl{display:inline-flex;align-items:center;gap:7px;font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:12px}
+.clbl.cq{background:rgba(0,114,185,.1);color:var(--blue)}
+.clbl.cd{background:rgba(243,161,0,.1);color:var(--amber)}
+.clbl.cr2{background:rgba(255,255,255,.05);color:var(--white)}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:13px;margin-bottom:28px}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:20px;display:flex;gap:16px;align-items:flex-start;transition:all .3s}
+.cc:hover{background:rgba(255,255,255,.06);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+.ci{width:95px;height:82px;flex-shrink:0;border-radius:9px;background:rgba(0,0,0,.22);display:flex;align-items:center;justify-content:center}
+.ci svg{width:82%;height:82%}
+.cb h4{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:.88rem;margin-bottom:3px}
+.cb p{color:var(--mid);font-size:.74rem;line-height:1.5}
+
+/* FINISH */
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:13px;margin-top:18px}
+.fc{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:20px;transition:all .3s;position:relative;overflow:hidden}
+.fc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--blue));opacity:0;transition:opacity .3s}
+.fc:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.12)}.fc:hover::before{opacity:1}
+.fc h4{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:700;font-size:.88rem;color:var(--amber);margin-bottom:5px}
+.fc p{color:var(--mid);font-size:.76rem;line-height:1.55}
+
+/* FOOTER */
+.ft{text-align:center;padding:32px 22px 40px;border-top:1px solid rgba(255,255,255,.05);margin-top:16px}
+.ft .brand{font-family:'Inter','DM Sans',system-ui,sans-serif;font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
+.ft .unit{font-size:.68rem;color:rgba(255,255,255,.2);margin-top:4px}
+.ft .refs{margin-top:16px;text-align:left;max-width:700px;margin-left:auto;margin-right:auto;padding:16px 20px;background:var(--card);border-radius:11px;border:1px solid var(--border)}
+.ft .refs h5{font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.76rem;font-weight:700;margin-bottom:8px;color:var(--amber)}
+.ft .refs p{font-size:.66rem;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:2px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:680px){.nav-inner{gap:2px}.arrow{display:none}.ntab{font-size:.68rem;padding:7px 12px}.g2,.g3,.cg{grid-template-columns:1fr}.cc{flex-direction:column}.ci{width:100%;height:70px}.hero{padding:36px 16px 30px}}
+@media print{body{background:#fff;color:#222}.bg-orbs{display:none}.nav{position:static;background:#fff}.pnl{display:block!important;page-break-before:always}.c,.cc,.sc,.fc,.ban{border:1px solid #ddd;break-inside:avoid;box-shadow:none}}
+</style>
+
+<style>
+#lineas .card-item:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+</style>
+
+<style id="global-font-fix">
+/* Global legibility override — replace all Syne instances with Inter */
+h1,h2,h3,h4,h5,h6,
+.hero h1, .ntab, .sh h2, .c h3, .sc h4, .ban h3, .cb h4, .fc h4,
+.clbl, .brand, .refs h5,
+.pnl h2, [class*="title"], [class*="heading"] {
+  font-family: 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: -0.02em;
+}
+/* Allow hero H1 slightly more tracking for display feel but still Inter */
+.hero h1 {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+}
+</style>
+</head>
+<body>
+Unidad de InvestigaciónInstituto de Educación Superior "Diseño y Comunicación"&nbsp; –  IDCInstituto de Educación Superior "Diseño y Comunicación" IDCInstituto de Educación Superior "Diseño y Comunicación" ID
+<div class="bg-orbs"><span class="o1"></span><span class="o2"></span><span class="o3"></span></div>
+<div class="wrap">
+<div class="hero">
+  <!-- LOGO IDC -->
+  <div style="text-align:center;padding:32px 20px 0;">
+    <img src="Logo_IDC.png" width="221" height="83" alt=""/>
+  </div>
+
+<div class="badge"><span class="dot-pulse"></span> Guía Metodológica · Investigación Cualitativa</div>
+<h1>Cómo Realizar una <span class="hl">Investigación Cualitativa</span></h1>
+<p class="sub">Estructura de cuatro partes para la redacción académica, contextualizada en las carreras de Diseño del IDC: Publicitario, Interiores, Comunicación Audiovisual y Modas.</p>
+<p class="cite">Basado en: Gopaldas, A. (2016). A front-to-back guide to writing a qualitative research article. <em>Qualitative Market Research</em>, 19(1), 115–121. <a href="https://doi.org/10.1108/QMR-08-2015-0074" target="_blank">DOI</a></p>
+</div>
+
+
+
+<div class="progs">
+<div class="prog">🎨 Diseño Publicitario</div>
+<div class="prog">🏠 Diseño de Interiores</div>
+<div class="prog">🎬 Comunicación Audiovisual</div>
+<div class="prog">✂️ Diseño de Modas</div>
+</div>
+
+<!-- NAV -->
+
+<!-- ═══════════════════════════════════════════════════════
+     ÁREA ACADÉMICA — LÍNEAS DE INVESTIGACIÓN
+     ═══════════════════════════════════════════════════════ -->
+<section id="lineas" style="padding:60px 24px 80px;max-width:1100px;margin:0 auto;">
+
+  <!-- Section header -->
+  <div style="text-align:center;margin-bottom:48px;">
+    <span style="display:inline-block;background:rgba(0,114,185,.12);border:1px solid rgba(0,114,185,.28);
+                 border-radius:50px;padding:5px 18px;font-size:.7rem;font-weight:700;
+                 letter-spacing:.1em;color:#0072b9;text-transform:uppercase;margin-bottom:14px;">
+      Área Académica
+    </span>
+    <h2 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:800;
+               letter-spacing:-.03em;line-height:1.15;margin-bottom:12px;">
+      Líneas de <span style="background:linear-gradient(135deg,#f3a100,#ff8800);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+      Investigación</span>
+    </h2>
+    <p style="color:#868686;font-size:.88rem;max-width:580px;margin:0 auto;line-height:1.6;">
+      Marco de investigación aplicada para las cuatro carreras del IDC, orientado al desarrollo 
+      de conocimiento pertinente, sostenible e innovador en diseño y comunicación.
+    </p>
+  </div>
+
+  <!-- Cards grid -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+
+    <!-- Diseño de Interiores -->
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(243,161,0,.22);
+                border-radius:16px;padding:28px 24px;transition:transform .3s;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <div style="width:42px;height:42px;border-radius:10px;background:rgba(243,161,0,.15);
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f3a100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#f3a100;line-height:1.2;">
+          Diseño de<br>Interiores
+        </h3>
+      </div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Sostenibilidad en el diseño de interiores
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Diseño de interiores para espacios reducidos
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Tecnología y domótica en el diseño de interiores
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Diseño inclusivo y accesible
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Bienestar y ergonomía en espacios comerciales
+        </li>
+      </ul>
+    </div>
+
+    <!-- Diseño Publicitario -->
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,114,185,.25);
+                border-radius:16px;padding:28px 24px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <div style="width:42px;height:42px;border-radius:10px;background:rgba(0,114,185,.15);
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0072b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#0072b9;line-height:1.2;">
+          Diseño<br>Publicitario
+        </h3>
+      </div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Estrategias de publicidad digital
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Psicología del color en publicidad
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Publicidad sostenible
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Innovación en publicidad interactiva
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Identidad corporativa y branding
+        </li>
+      </ul>
+    </div>
+
+    <!-- Diseño de Modas -->
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(243,161,0,.18);
+                border-radius:16px;padding:28px 24px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <div style="width:42px;height:42px;border-radius:10px;background:rgba(243,161,0,.12);
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f3a100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#f3a100;line-height:1.2;">
+          Diseño de<br>Modas
+        </h3>
+      </div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Moda sostenible y reciclaje textil
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Innovación textil
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Diseño de moda inclusivo
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Tendencias y consumo responsable
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#f3a100;margin-top:2px;flex-shrink:0;">●</span>Tecnología en la moda
+        </li>
+      </ul>
+    </div>
+
+    <!-- Comunicación Audiovisual -->
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,114,185,.22);
+                border-radius:16px;padding:28px 24px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <div style="width:42px;height:42px;border-radius:10px;background:rgba(0,114,185,.14);
+                    display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0072b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.95rem;font-weight:700;color:#0072b9;line-height:1.2;">
+          Comunicación<br>Audiovisual
+        </h3>
+      </div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Narrativas digitales y transmedia
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Cine y documental social
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Innovación en técnicas de postproducción
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Producción audiovisual de bajo presupuesto
+        </li>
+        <li style="display:flex;gap:8px;align-items:flex-start;font-size:.78rem;color:#c9c9c7;line-height:1.4;">
+          <span style="color:#0072b9;margin-top:2px;flex-shrink:0;">●</span>Producción audiovisual en plataformas digitales
+        </li>
+      </ul>
+    </div>
+
+  </div><!-- /grid -->
+</section>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+
+
+<!-- HERO -->
+
+<!-- ═══════════════════════════════════════════════════════
+     INTEGRACIÓN ACADÉMICA — GOPALDAS (2016) × LÍNEAS IDC
+     ═══════════════════════════════════════════════════════ -->
+<section id="integracion" style="padding:0 24px 80px;max-width:1100px;margin:0 auto;">
+
+  <!-- Encabezado -->
+  <div style="text-align:center;margin-bottom:52px;">
+    <span style="display:inline-block;background:rgba(243,161,0,.1);border:1px solid rgba(243,161,0,.3);
+                 border-radius:50px;padding:5px 18px;font-size:.7rem;font-weight:700;
+                 letter-spacing:.1em;color:#f3a100;text-transform:uppercase;margin-bottom:14px;">
+      Marco Metodológico
+    </span>
+    <h2 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;
+               letter-spacing:-.03em;line-height:1.15;margin-bottom:12px;">
+      Artículo Cualitativo ×&nbsp;
+      <span style="background:linear-gradient(135deg,#0072b9,#00a8e8);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+      Líneas de Investigación</span>
+    </h2>
+    <p style="color:#868686;font-size:.87rem;max-width:640px;margin:0 auto;line-height:1.6;">
+      Aplicación del modelo <em>front-to-back</em> de Gopaldas (2016) a los proyectos 
+      de investigación de las cuatro carreras del IDC, articulando métodos cualitativos 
+      y visualización estadística de datos.
+    </p>
+  </div>
+
+  <!-- BLOQUE 1: Las 4 partes del artículo × carreras -->
+  <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+              border-radius:20px;padding:36px 32px;margin-bottom:32px;">
+    <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:1rem;font-weight:700;color:#f3a100;
+               margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+      <span style="width:28px;height:28px;border-radius:7px;background:rgba(243,161,0,.15);
+                   display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;">01</span>
+      Estructura del Artículo Aplicada por Carrera
+    </h3>
+
+    <!-- tabla de integración -->
+    <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:.78rem;">
+      <thead>
+        <tr>
+          <th style="padding:10px 14px;background:rgba(0,114,185,.12);color:#0072b9;
+                     text-align:left;border-radius:8px 0 0 8px;font-weight:700;white-space:nowrap;">
+            Parte del Artículo
+          </th>
+          <th style="padding:10px 14px;background:rgba(0,114,185,.08);color:#868686;text-align:left;font-weight:600;">
+            Interiores
+          </th>
+          <th style="padding:10px 14px;background:rgba(0,114,185,.08);color:#868686;text-align:left;font-weight:600;">
+            Publicitario
+          </th>
+          <th style="padding:10px 14px;background:rgba(0,114,185,.08);color:#868686;text-align:left;font-weight:600;">
+            Modas
+          </th>
+          <th style="padding:10px 14px;background:rgba(0,114,185,.08);color:#868686;text-align:left;
+                     border-radius:0 8px 8px 0;font-weight:600;">
+            Audiovisual
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:12px 14px;color:#f3a100;font-weight:700;">Frontend</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Fenómeno: bienestar en espacios construidos</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Fenómeno: percepción del color en marcas</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Fenómeno: consumo responsable en moda joven</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Fenómeno: narrativas transmedia en audiencias</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.02);">
+          <td style="padding:12px 14px;color:#0072b9;font-weight:700;">Métodos</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Etnografía de espacios + entrevistas a usuarios</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Análisis semiótico + grupos focales</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Observación participante en puntos de venta</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Análisis de contenido digital + netnografía</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,.05);">
+          <td style="padding:12px 14px;color:#f3a100;font-weight:700;">Hallazgos</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Modelos ergonómicos emergentes por tipología</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Patrones de respuesta emocional por segmento</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Tensiones entre tendencia y ética textil</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Taxonomía de formatos narrativos convergentes</td>
+        </tr>
+        <tr>
+          <td style="padding:12px 14px;color:#0072b9;font-weight:700;">Backend</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Implicancias para diseño inclusivo y normativa</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Recomendaciones para estrategia de marca</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Marco de sostenibilidad para diseñadores</td>
+          <td style="padding:12px 14px;color:#c9c9c7;line-height:1.4;">Guía de producción multiplataforma</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: Visualización estadística — tipos de gráficos -->
+  <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+              border-radius:20px;padding:36px 32px;margin-bottom:32px;">
+
+<style>
+/* ── VIZ SECTION TYPOGRAPHY FIX ── */
+#integracion, #integracion * {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif !important;
+}
+#integracion h3 {
+  font-family:'Inter','DM Sans',system-ui,sans-serif;
+}
+.viz-block-title {
+  font-family:'Inter','DM Sans',system-ui,sans-serif;
+  font-size: .95rem; font-weight: 700; line-height:1.2;
+}
+.viz-group-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: .09em;
+  text-transform: uppercase; padding: 4px 14px;
+  border-radius: 0 6px 6px 0; display: inline-block;
+  margin-bottom: 16px;
+}
+.viz-card {
+  background: rgba(255,255,255,.04);
+  border-radius: 14px; padding: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease;
+}
+.viz-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+.viz-card-icon { font-size: 1.5rem; line-height:1; }
+.viz-card-title {
+  font-family:'Inter','DM Sans',system-ui,sans-serif;
+  font-size: .88rem; font-weight: 700;
+}
+.viz-card-desc {
+  font-size: .76rem; color: #868686; line-height: 1.55;
+}
+.viz-card-idc {
+  font-size: .72rem; line-height: 1.5;
+  background: rgba(255,255,255,.04);
+  border-radius: 8px; padding: 8px 10px;
+}
+.viz-card-idc strong { }
+/* animated mini SVG charts */
+.vb { transition: fill .3s, filter .3s; cursor: pointer; }
+.vb:hover { filter: brightness(1.5) drop-shadow(0 0 4px rgba(243,161,0,.6)); }
+.vl { stroke-dasharray: 300; stroke-dashoffset: 300;
+      animation: vdraw 1.2s ease forwards; }
+@keyframes vdraw { to { stroke-dashoffset: 0; } }
+.vd { transition: r .3s, fill .3s, filter .3s; cursor: pointer; }
+.vd:hover { filter: drop-shadow(0 0 5px rgba(0,114,185,.7)); }
+</style>
+
+    <!-- Header row -->
+    <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:1rem;font-weight:700;color:#0072b9;
+               margin-bottom:8px;display:flex;align-items:center;gap:10px;">
+      <span style="width:28px;height:28px;border-radius:7px;background:rgba(0,114,185,.15);
+                   display:inline-flex;align-items:center;justify-content:center;
+                   font-size:.8rem;color:#0072b9;font-family:'DM Sans',sans-serif;">02</span>
+      <span class="viz-block-title">Visualización de Datos en Investigación de Diseño</span>
+    </h3>
+    <p style="font-size:.82rem;color:#868686;margin-bottom:28px;padding-left:38px;line-height:1.6;">
+      Selección del gráfico adecuado según el tipo de dato y la pregunta de investigación.
+    </p>
+
+    <!-- ── GRUPO 1: Datos Categóricos ── -->
+    <div style="margin-bottom:28px;">
+      <div class="viz-group-label"
+           style="background:rgba(243,161,0,.1);border-left:3px solid #f3a100;color:#f3a100;">
+        Datos Categóricos (Cualitativos)
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;">
+
+        <!-- Barras -->
+        <div class="viz-card" style="border:1px solid rgba(243,161,0,.18);">
+          <div class="viz-card-icon">📊</div>
+          <div class="viz-card-title" style="color:#f3a100;">Gráfico de Barras</div>
+          <div class="viz-card-desc">
+            Compara cantidades entre categorías usando la longitud de barras para facilitar la comparación visual directa.
+          </div>
+          <!-- mini bar chart -->
+          <svg width="100%" viewBox="0 0 140 48" style="margin:2px 0;">
+            <rect class="vb" data-t="Cat A: 72" x="10" y="14" width="18" height="30" rx="2" fill="#f3a100" fill-opacity=".85">
+              <animate attributeName="y" from="44" to="14" dur=".6s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="30" dur=".6s" fill="freeze"/>
+            </rect>
+            <rect class="vb" data-t="Cat B: 54" x="36" y="25" width="18" height="19" rx="2" fill="#f3a100" fill-opacity=".55">
+              <animate attributeName="y" from="44" to="25" dur=".6s" begin=".1s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="19" dur=".6s" begin=".1s" fill="freeze"/>
+            </rect>
+            <rect class="vb" data-t="Cat C: 88" x="62" y="6" width="18" height="38" rx="2" fill="#f3a100">
+              <animate attributeName="y" from="44" to="6" dur=".6s" begin=".2s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="38" dur=".6s" begin=".2s" fill="freeze"/>
+            </rect>
+            <rect class="vb" data-t="Cat D: 40" x="88" y="28" width="18" height="16" rx="2" fill="#555553">
+              <animate attributeName="y" from="44" to="28" dur=".6s" begin=".3s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="16" dur=".6s" begin=".3s" fill="freeze"/>
+            </rect>
+            <line x1="5" y1="44" x2="135" y2="44" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          </svg>
+          <div class="viz-card-idc">
+            <strong style="color:#f3a100;">IDC →</strong>
+            Comparar niveles de satisfacción por tipo de espacio (Interiores) o engagement por formato publicitario (Publicidad).
+          </div>
+        </div>
+
+        <!-- Circular -->
+        <div class="viz-card" style="border:1px solid rgba(243,161,0,.18);">
+          <div class="viz-card-icon">🥧</div>
+          <div class="viz-card-title" style="color:#f3a100;">Gráfico Circular</div>
+          <div class="viz-card-desc">
+            Muestra proporciones de un todo. Efectivo con menos de 5 categorías y diferencias evidentes entre proporciones.
+          </div>
+          <!-- mini donut -->
+          <svg width="100%" viewBox="0 0 140 54" style="margin:2px 0;">
+            <circle cx="70" cy="27" r="20" fill="none" stroke="#f3a100" stroke-width="10"
+              stroke-dasharray="75.4 125.66" stroke-dashoffset="-31.4">
+              <animate attributeName="stroke-dashoffset" from="125.66" to="-31.4" dur=".8s" fill="freeze"/>
+            </circle>
+            <circle cx="70" cy="27" r="20" fill="none" stroke="#0072b9" stroke-width="10"
+              stroke-dasharray="50.27 125.66" stroke-dashoffset="-109.1">
+              <animate attributeName="stroke-dashoffset" from="125.66" to="-109.1" dur=".9s" fill="freeze"/>
+            </circle>
+            <circle cx="70" cy="27" r="20" fill="none" stroke="#555553" stroke-width="10"
+              stroke-dasharray="25.13 125.66" stroke-dashoffset="-47.1">
+              <animate attributeName="stroke-dashoffset" from="125.66" to="-47.1" dur="1s" fill="freeze"/>
+            </circle>
+            <!-- labels -->
+            <rect x="2" y="16" width="8" height="8" rx="1" fill="#f3a100"/>
+            <text x="13" y="23" fill="#868686" font-size="7" font-family="DM Sans,sans-serif">60%</text>
+            <rect x="2" y="28" width="8" height="8" rx="1" fill="#0072b9"/>
+            <text x="13" y="35" fill="#868686" font-size="7" font-family="DM Sans,sans-serif">30%</text>
+            <rect x="2" y="40" width="8" height="8" rx="1" fill="#555553"/>
+            <text x="13" y="47" fill="#868686" font-size="7" font-family="DM Sans,sans-serif">20%</text>
+          </svg>
+          <div class="viz-card-idc">
+            <strong style="color:#f3a100;">IDC →</strong>
+            Distribución de materiales sostenibles en colecciones (Modas) o proporción de plataformas digitales usadas (Audiovisual).
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GRUPO 2: Distribución Numérica ── -->
+    <div style="margin-bottom:28px;">
+      <div class="viz-group-label"
+           style="background:rgba(0,114,185,.1);border-left:3px solid #0072b9;color:#0072b9;">
+        Distribución Numérica (Cuantitativa)
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;">
+
+        <!-- Histograma -->
+        <div class="viz-card" style="border:1px solid rgba(0,114,185,.2);">
+          <div class="viz-card-icon">📉</div>
+          <div class="viz-card-title" style="color:#0072b9;">Histograma</div>
+          <div class="viz-card-desc">
+            Agrupa datos numéricos en intervalos para evaluar la forma de distribución: normal, sesgada o bimodal.
+          </div>
+          <!-- mini histogram bell -->
+          <svg width="100%" viewBox="0 0 140 48" style="margin:2px 0;">
+            <rect class="vb" x="10" y="36" width="14" height="8"  rx="1" fill="#0072b9" fill-opacity=".5">
+              <animate attributeName="y" from="44" to="36" dur=".5s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="8"  dur=".5s" fill="freeze"/>
+            </rect>
+            <rect class="vb" x="27" y="26" width="14" height="18" rx="1" fill="#0072b9" fill-opacity=".65">
+              <animate attributeName="y" from="44" to="26" dur=".5s" begin=".1s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="18" dur=".5s" begin=".1s" fill="freeze"/>
+            </rect>
+            <rect class="vb" x="44" y="10" width="14" height="34" rx="1" fill="#0072b9">
+              <animate attributeName="y" from="44" to="10" dur=".5s" begin=".2s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="34" dur=".5s" begin=".2s" fill="freeze"/>
+            </rect>
+            <rect class="vb" x="61" y="18" width="14" height="26" rx="1" fill="#0072b9" fill-opacity=".75">
+              <animate attributeName="y" from="44" to="18" dur=".5s" begin=".3s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="26" dur=".5s" begin=".3s" fill="freeze"/>
+            </rect>
+            <rect class="vb" x="78" y="32" width="14" height="12" rx="1" fill="#0072b9" fill-opacity=".5">
+              <animate attributeName="y" from="44" to="32" dur=".5s" begin=".4s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="12" dur=".5s" begin=".4s" fill="freeze"/>
+            </rect>
+            <rect class="vb" x="95" y="40" width="14" height="4"  rx="1" fill="#0072b9" fill-opacity=".3">
+              <animate attributeName="y" from="44" to="40" dur=".5s" begin=".5s" fill="freeze"/>
+              <animate attributeName="height" from="0" to="4"  dur=".5s" begin=".5s" fill="freeze"/>
+            </rect>
+            <line x1="5" y1="44" x2="125" y2="44" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+            <text x="55" y="6" fill="#0072b9" font-size="6" text-anchor="middle"
+                  font-family="DM Sans,sans-serif">distribución normal</text>
+          </svg>
+          <div class="viz-card-idc">
+            <strong style="color:#0072b9;">IDC →</strong>
+            Distribución de percepción ergonómica en usuarios (Interiores) o de valoración estética de prototipos (Modas).
+          </div>
+        </div>
+
+        <!-- Boxplot -->
+        <div class="viz-card" style="border:1px solid rgba(0,114,185,.2);">
+          <div class="viz-card-icon">📦</div>
+          <div class="viz-card-title" style="color:#0072b9;">Boxplot</div>
+          <div class="viz-card-desc">
+            Resume distribución por cuartiles: mediana, rango intercuartílico y valores atípicos (outliers). Ideal para comparar grupos.
+          </div>
+          <!-- mini boxplot -->
+          <svg width="100%" viewBox="0 0 140 48" style="margin:2px 0;">
+            <!-- box -->
+            <rect x="25" y="14" width="55" height="24" rx="2" fill="rgba(0,114,185,.15)" stroke="#0072b9" stroke-width="1.5"
+                  style="transition:stroke .3s,filter .3s;cursor:pointer;"
+                  onmouseenter="this.style.stroke='#f3a100';this.style.filter='drop-shadow(0 0 4px rgba(243,161,0,.5))'"
+                  onmouseleave="this.style.stroke='#0072b9';this.style.filter='none'"/>
+            <!-- median -->
+            <line x1="52" y1="14" x2="52" y2="38" stroke="#f3a100" stroke-width="2"/>
+            <!-- whiskers -->
+            <line x1="8" y1="26" x2="25" y2="26" stroke="#fff" stroke-width="1" stroke-dasharray="3,2"/>
+            <line x1="80" y1="26" x2="102" y2="26" stroke="#fff" stroke-width="1" stroke-dasharray="3,2"/>
+            <!-- outlier -->
+            <circle cx="112" cy="26" r="3" fill="none" stroke="#ff6b6b" stroke-width="1.5"/>
+            <line x1="5" y1="44" x2="130" y2="44" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+            <text x="52" y="9" fill="#f3a100" font-size="6" text-anchor="middle"
+                  font-family="DM Sans,sans-serif">mediana</text>
+            <text x="112" y="42" fill="#ff6b6b" font-size="5.5" text-anchor="middle"
+                  font-family="DM Sans,sans-serif">outlier</text>
+          </svg>
+          <div class="viz-card-idc">
+            <strong style="color:#0072b9;">IDC →</strong>
+            Comparar respuesta emocional ante campañas por grupo etario (Publicidad) o ranking de narrativas por plataforma (Audiovisual).
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── GRUPO 3: Relaciones y Tendencias ── -->
+    <div>
+      <div class="viz-group-label"
+           style="background:rgba(85,85,83,.2);border-left:3px solid #555553;color:#aaa;">
+        Relaciones y Tendencias
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;">
+
+        <!-- Líneas -->
+        <div class="viz-card" style="border:1px solid rgba(85,85,83,.35);">
+          <div class="viz-card-icon">📈</div>
+          <div class="viz-card-title" style="color:#aaa;">Gráfico de Líneas</div>
+          <div class="viz-card-desc">
+            Muestra la evolución temporal de una variable. Evidencia tendencias, aceleraciones o caídas en series de tiempo.
+          </div>
+          <!-- mini line chart -->
+          <svg width="100%" viewBox="0 0 140 48" style="margin:2px 0;">
+            <polyline class="vl" points="10,38 35,30 60,20 90,14 120,8"
+              fill="none" stroke="#aaaaaa" stroke-width="2" stroke-linecap="round"/>
+            <polygon points="10,38 35,30 60,20 90,14 120,8 120,44 10,44"
+              fill="rgba(170,170,170,.06)"/>
+            <circle class="vd" data-t="T1: 32" cx="10"  cy="38" r="3" fill="#555553" stroke="#fff" stroke-width="1"/>
+            <circle class="vd" data-t="T2: 46" cx="35"  cy="30" r="3" fill="#555553" stroke="#fff" stroke-width="1"/>
+            <circle class="vd" data-t="T3: 60" cx="60"  cy="20" r="3" fill="#868686" stroke="#fff" stroke-width="1"/>
+            <circle class="vd" data-t="T4: 72" cx="90"  cy="14" r="3" fill="#aaa"    stroke="#fff" stroke-width="1"/>
+            <circle class="vd" data-t="T5: 84" cx="120" cy="8"  r="3" fill="#fff"    stroke="#aaa" stroke-width="1"/>
+            <line x1="5" y1="44" x2="130" y2="44" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          </svg>
+          <div class="viz-card-idc">
+            <strong style="color:#aaa;">IDC →</strong>
+            Evolución de tendencias en moda sostenible por temporada o crecimiento de métricas de engagement digital en campaña.
+          </div>
+        </div>
+
+        <!-- Dispersión -->
+        <div class="viz-card" style="border:1px solid rgba(85,85,83,.35);">
+          <div class="viz-card-icon">🔵</div>
+          <div class="viz-card-title" style="color:#aaa;">Diagrama de Dispersión</div>
+          <div class="viz-card-desc">
+            Revela correlación entre dos variables numéricas: relación directa, inversa o nula en plano cartesiano.
+          </div>
+          <!-- mini scatter -->
+          <svg width="100%" viewBox="0 0 140 48" style="margin:2px 0;">
+            <circle class="vd" data-t="r=.82 directa" cx="15" cy="40" r="3" fill="#555553"/>
+            <circle class="vd" cx="28" cy="34" r="3" fill="#555553"/>
+            <circle class="vd" cx="42" cy="28" r="3" fill="#555553"/>
+            <circle class="vd" cx="58" cy="22" r="3" fill="#868686"/>
+            <circle class="vd" cx="74" cy="18" r="3" fill="#868686"/>
+            <circle class="vd" cx="90" cy="12" r="3" fill="#aaa"/>
+            <circle class="vd" cx="108" cy="8"  r="3" fill="#fff"/>
+            <line x1="10" y1="43" x2="120" y2="6" stroke="rgba(243,161,0,.4)" stroke-width="1" stroke-dasharray="3,2"/>
+            <line x1="5" y1="44" x2="130" y2="44" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+            <line x1="5" y1="44" x2="5" y2="4" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+            <text x="68" y="48" fill="#555553" font-size="6" text-anchor="middle"
+                  font-family="DM Sans,sans-serif">correlación directa r=.82</text>
+          </svg>
+          <div class="viz-card-idc">
+            <strong style="color:#aaa;">IDC →</strong>
+            Correlación entre iluminación y confort percibido (Interiores) o entre inversión publicitaria y conversión de marca.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /bloque 02 -->
+<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+              border-radius:20px;padding:36px 32px;">
+    <h3 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:1rem;font-weight:700;color:#f3a100;
+               margin-bottom:8px;display:flex;align-items:center;gap:10px;">
+      <span style="width:28px;height:28px;border-radius:7px;background:rgba(243,161,0,.15);
+                   display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;">03</span>
+      Flujo Front-to-Back para Proyectos IDC
+    </h3>
+    <p style="color:#868686;font-size:.8rem;margin-bottom:28px;padding-left:38px;">
+      Secuencia de escritura recomendada por Gopaldas (2016) adaptada al contexto de investigación en diseño y comunicación.
+    </p>
+
+    <!-- Steps flow -->
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;">
+
+      <!-- Paso 1 -->
+      <div style="flex:1;min-width:150px;background:rgba(243,161,0,.07);border:1px solid rgba(243,161,0,.2);
+                  border-radius:12px;padding:16px 14px;position:relative;">
+        <div style="font-size:.65rem;font-weight:800;color:#f3a100;letter-spacing:.12em;
+                    text-transform:uppercase;margin-bottom:8px;">Frontend</div>
+        <div style="font-size:.76rem;color:#ffffff;font-weight:600;margin-bottom:6px;">Fenómeno + Literatura</div>
+        <div style="font-size:.72rem;color:#868686;line-height:1.45;">
+          Problema teórico, pregunta de investigación y perspectiva interpretativa.
+        </div>
+      </div>
+      <div style="align-self:center;color:#555553;font-size:1.2rem;flex-shrink:0;">→</div>
+
+      <!-- Paso 2 -->
+      <div style="flex:1;min-width:150px;background:rgba(0,114,185,.07);border:1px solid rgba(0,114,185,.22);
+                  border-radius:12px;padding:16px 14px;">
+        <div style="font-size:.65rem;font-weight:800;color:#0072b9;letter-spacing:.12em;
+                    text-transform:uppercase;margin-bottom:8px;">Métodos</div>
+        <div style="font-size:.76rem;color:#ffffff;font-weight:600;margin-bottom:6px;">Contexto + Datos</div>
+        <div style="font-size:.72rem;color:#868686;line-height:1.45;">
+          Muestreo teórico, recolección etnográfica o semiótica y análisis iterativo.
+        </div>
+      </div>
+      <div style="align-self:center;color:#555553;font-size:1.2rem;flex-shrink:0;">→</div>
+
+      <!-- Paso 3 -->
+      <div style="flex:1;min-width:150px;background:rgba(243,161,0,.07);border:1px solid rgba(243,161,0,.2);
+                  border-radius:12px;padding:16px 14px;">
+        <div style="font-size:.65rem;font-weight:800;color:#f3a100;letter-spacing:.12em;
+                    text-transform:uppercase;margin-bottom:8px;">Hallazgos</div>
+        <div style="font-size:.76rem;color:#ffffff;font-weight:600;margin-bottom:6px;">Claim–Data–Elaboración</div>
+        <div style="font-size:.72rem;color:#868686;line-height:1.45;">
+          Figuras del modelo emergente, citas en bloque y tablas autoexplicativas.
+        </div>
+      </div>
+      <div style="align-self:center;color:#555553;font-size:1.2rem;flex-shrink:0;">→</div>
+
+      <!-- Paso 4 -->
+      <div style="flex:1;min-width:150px;background:rgba(0,114,185,.07);border:1px solid rgba(0,114,185,.22);
+                  border-radius:12px;padding:16px 14px;">
+        <div style="font-size:.65rem;font-weight:800;color:#0072b9;letter-spacing:.12em;
+                    text-transform:uppercase;margin-bottom:8px;">Backend</div>
+        <div style="font-size:.76rem;color:#ffffff;font-weight:600;margin-bottom:6px;">Contribución + Implicancias</div>
+        <div style="font-size:.72rem;color:#868686;line-height:1.45;">
+          Aportes teóricos, recomendaciones prácticas para stakeholders y limitaciones futuras.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Referencia -->
+    <p style="margin-top:20px;font-size:.7rem;color:rgba(255,255,255,.25);font-style:italic;text-align:right;">
+      Basado en: Gopaldas, A. (2016). A front-to-back guide to writing a qualitative research article. 
+      <em>Qualitative Market Research</em>, 19(1), 115–121.
+      <a href="https://doi.org/10.1108/QMR-08-2015-0074" target="_blank" style="color:#0072b9;font-size:.7rem;">DOI: 10.1108/QMR-08-2015-0074</a>
+    </p>
+  </div>
+
+</section>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<div class="nav">
+<div class="nav-inner">
+<button class="ntab on" data-p="frontend"><span class="n">01</span> Frontend</button>
+<span class="arrow">→</span>
+<button class="ntab" data-p="methods"><span class="n">02</span> Métodos</button>
+<span class="arrow">→</span>
+<button class="ntab" data-p="findings"><span class="n">03</span> Hallazgos</button>
+<span class="arrow">→</span>
+<button class="ntab" data-p="backend"><span class="n">04</span> Backend</button>
+</div>
+</div>
+
+<!-- ===== FRONTEND ===== -->
+<div class="pnl on" id="p-frontend">
+<div class="sh rv">
+<div class="over">Parte 01 — La más importante</div>
+<h2>El Frontend (Introducción)</h2>
+<div class="desc">Establece fenómeno, literatura, problema teórico, pregunta, motivación y perspectiva teórica. Contribuye desproporcionadamente a la impresión del evaluador.</div>
+<div class="src">📖 Gopaldas (2016, p. 116): «the frontend is paramount because it [...] sets expectations for the empirical findings, theoretical contributions and practical implications.»</div>
+</div>
+<div class="g g2">
+<div class="c rv"><span class="cn">01</span>
+<h3><span class="d" style="background:var(--amber)"></span> Fenómeno</h3>
+<p>¿Qué dominio se investiga y por qué? Comenzar con una viñeta provocadora o noticia relevante. Es nuevo, crece, cambia o es crítico para una causa profesional o social.</p>
+<div class="ptags"><span class="pt pub">Pub: percepción de marca en redes</span><span class="pt int">Int: biofilia en espacios comerciales</span><span class="pt av">AV: narrativas transmedia</span><span class="pt mod">Mod: moda sostenible</span></div>
+<div class="cr">Gopaldas (2016, p. 116)</div>
+</div>
+<div class="c rv"><span class="cn">02</span>
+<h3><span class="d" style="background:var(--amber)"></span> Revisión de Literatura</h3>
+<p>¿Qué dice la literatura? Citar artículos fundacionales y los que cambiaron la conversación. Organizar por cronología, disciplina, nivel de análisis o perspectiva teórica.</p>
+<div class="ptags"><span class="pt pub">Pub: semiótica visual publicitaria peruana</span><span class="pt int">Int: neuroarquitectura y bienestar</span><span class="pt av">AV: estudios de recepción audiovisual</span><span class="pt mod">Mod: teoría del vestir y cultura material</span></div>
+<div class="cr">Gopaldas (2016, p. 116)</div>
+</div>
+<div class="c rv"><span class="cn">03</span>
+<h3><span class="d" style="background:var(--amber)"></span> Problema Teórico</h3>
+<p>¿Qué ignora la literatura? Problematizar activamente: incompleta, inadecuada o inconmensurable. La inadecuación es la más segura.</p>
+<div class="tip">«Although many studies address [...], less is known about [...]» — Gopaldas (2016, p. 117), citando Locke & Golden-Biddle (1997)</div>
+<div class="ptags"><span class="pt pub">Pub: eficacia emocional en PYMEs locales</span><span class="pt int">Int: percepción sensorial en vivienda social</span><span class="pt av">AV: IA en narrativa documental</span><span class="pt mod">Mod: identidad cultural en moda regional</span></div>
+</div>
+<div class="c rv"><span class="cn">04</span>
+<h3><span class="d" style="background:var(--amber)"></span> Pregunta de Investigación</h3>
+<p>Reformular el problema como pregunta. Las revistas valoran «por qué» y «cómo». La investigación cualitativa es ideal para modelos explicativos y procesuales.</p>
+<div class="tip">«Qualitative research is especially well-suited for developing explanatory ("why") and processual ("how") models.» — Gopaldas (2016, p. 117), citando Whetten (1989)</div>
+<div class="ptags"><span class="pt pub">¿Cómo construyen significado visual las PYMEs en Instagram?</span><span class="pt int">¿Qué factores sensoriales promueven bienestar en espacios educativos?</span><span class="pt av">¿Cómo integran los documentalistas la IA en su proceso?</span><span class="pt mod">¿Qué elementos culturales usan los diseñadores emergentes?</span></div>
+</div>
+<div class="c rv"><span class="cn">05</span>
+<h3><span class="d" style="background:var(--blue)"></span> Motivación del Estudio</h3>
+<p>¿Por qué importa resolver el problema? Es el «so what?». Adelantar contribuciones teóricas e implicaciones prácticas con razones académicas y profesionales.</p>
+<div class="cr">Gopaldas (2016, p. 117)</div>
+</div>
+<div class="c rv"><span class="cn">06</span>
+<h3><span class="d" style="background:var(--blue)"></span> Perspectiva Teórica</h3>
+<p>¿Qué lente interpretativo y por qué? Teoría actor-red, institucional, práctica social. Justificar similitudes entre perspectiva y pregunta.</p>
+<div class="ptags"><span class="pt pub">Semiótica peirceana + Barthes</span><span class="pt int">Fenomenología del habitar (Pallasmaa)</span><span class="pt av">Teoría de recepción activa</span><span class="pt mod">Estudios culturales + embodiment</span></div>
+<div class="cr">Gopaldas (2016, pp. 117–118)</div>
+</div>
+<div class="c rv" style="grid-column:1/-1"><span class="cn">07</span>
+<h3><span class="d" style="background:var(--mid)"></span> Hoja de Ruta (Roadmap)</h3>
+<p>Describir la organización del resto del artículo. Al final de una introducción corta o al cierre de una larga con múltiples componentes.</p>
+<div class="cr">Gopaldas (2016, p. 118)</div>
+</div>
+</div>
+</div>
+
+
+<div style="margin-top:28px;background:rgba(243,161,0,.06);border:1px solid rgba(243,161,0,.25);
+            border-radius:14px;padding:24px 22px;">
+  <div style="font-size:.65rem;font-weight:800;color:#f3a100;letter-spacing:.12em;
+              text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+    <span style="width:20px;height:20px;border-radius:50%;background:rgba(243,161,0,.2);
+                 display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;">✍</span>
+    Ejemplo de Redacción — Diseño de Modas (Upcycling)
+  </div>
+  <p style="font-size:.82rem;color:#c9c9c7;line-height:1.7;font-style:italic;
+            border-left:3px solid rgba(243,161,0,.35);padding-left:14px;margin:0;">
+    "La industria de la moda es responsable de un volumen alarmante de residuos a nivel global, 
+    lo que ha impulsado un interés creciente en el reciclaje textil. Si bien la literatura previa 
+    ha documentado exhaustivamente las innovaciones en reciclaje industrial y la adopción de 
+    normativas macroeconómicas, existe una comprensión teórica limitada sobre las tácticas de 
+    supervivencia y adaptación que emplean los diseñadores independientes en economías emergentes. 
+    Para abordar esta brecha, esta investigación plantea la siguiente pregunta: <strong 
+    style="color:#f3a100;">¿Cómo integran las marcas de moda independiente las prácticas de 
+    supra-reciclaje (upcycling) frente a la escasez de recursos tecnológicos?</strong> Resolver 
+    este problema es crucial para ayudar a las microempresas a escalar sus operaciones sostenibles."
+  </p>
+  <p style="margin-top:10px;font-size:.7rem;color:#555553;">
+    📌 Estructura: Fenómeno → Literatura → Problema Teórico → Pregunta → Motivación
+  </p>
+</div>
+<!-- ===== METHODS ===== -->
+<div class="pnl" id="p-methods">
+<div class="sh rv">
+<div class="over">Parte 02 — Diseño del Estudio</div>
+<h2>Los Métodos</h2>
+<div class="desc">Generalmente la sección más breve. Tres elementos críticos justificados teóricamente: contexto, recolección y análisis de datos.</div>
+<div class="src">📖 Gopaldas (2016, p. 118): «Each element should be theoretically justified.»</div>
+</div>
+<div class="g g3">
+<div class="c rv"><span class="cn">A</span>
+<h3><span class="d" style="background:var(--blue)"></span> Contexto</h3>
+<p>¿Cuál es el escenario real? Describir como si se escribiera a alguien lejano. Explicar cómo el contexto encarna el problema teórico.</p>
+<div class="ptags"><span class="pt pub">Agencias de publicidad en Lima</span><span class="pt int">Viviendas del programa Techo Propio</span><span class="pt av">Productoras independientes de Lima</span><span class="pt mod">Talleres de confección de Gamarra</span></div>
+</div>
+<div class="c rv"><span class="cn">B</span>
+<h3><span class="d" style="background:var(--blue)"></span> Recolección</h3>
+<p>¿Cómo se recogieron y por qué? Primarios/secundarios, textuales/visuales. Solo datos efectivamente usados. Muestreo teórico.</p>
+<div class="tip">Para diseño: registros fotográficos, análisis de portafolios, etnografía visual, entrevistas semiestructuradas con diseñadores y usuarios.</div>
+<div class="cr">Gopaldas (2016, p. 118)</div>
+</div>
+<div class="c rv"><span class="cn">C</span>
+<h3><span class="d" style="background:var(--blue)"></span> Análisis</h3>
+<p>Categorización, abstracción, comparación, dimensionalización, integración, iteración, refutación. Enfocarse en pasos creativos e inusuales.</p>
+<div class="cr">Gopaldas (2016, p. 118), citando Spiggle (1994)</div>
+</div>
+</div>
+<div class="ban rv">
+<h3>Visiones Exploratorias por Carrera IDC</h3>
+<p>En las carreras de diseño, los métodos cualitativos cobran especial relevancia por la naturaleza visual, sensorial y cultural de los objetos de estudio. La etnografía visual, el análisis semiótico de artefactos, la observación participante y las entrevistas con stakeholders creativos generan una riqueza de datos que los métodos cuantitativos no capturan por sí solos. Para complementar, se pueden articular con enfoques cuantitativos exploratorios: encuestas de percepción, escalas Likert de satisfacción estética, análisis de frecuencias de elementos visuales y métricas de engagement digital.</p>
+</div>
+</div>
+
+
+<div style="margin-top:28px;background:rgba(0,114,185,.06);border:1px solid rgba(0,114,185,.25);
+            border-radius:14px;padding:24px 22px;">
+  <div style="font-size:.65rem;font-weight:800;color:#0072b9;letter-spacing:.12em;
+              text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+    <span style="width:20px;height:20px;border-radius:50%;background:rgba(0,114,185,.2);
+                 display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;">✍</span>
+    Ejemplo de Redacción — Diseño de Modas (Lima, Perú)
+  </div>
+  <p style="font-size:.82rem;color:#c9c9c7;line-height:1.7;font-style:italic;
+            border-left:3px solid rgba(0,114,185,.35);padding-left:14px;margin:0;">
+    "El contexto de esta investigación se centra en cinco talleres de diseño independiente 
+    ubicados en Lima, Perú. Este contexto fue seleccionado mediante un <strong 
+    style="color:#0072b9;">muestreo teórico</strong>, ya que representa un entorno donde el 
+    reciclaje textil se realiza de manera predominantemente manual debido a la falta de 
+    maquinaria de desfibrado a gran escala. La recolección de datos incluyó 15 entrevistas en 
+    profundidad con directores creativos y la observación directa de sus procesos de corte y 
+    confección. El análisis de datos siguió un proceso iterativo de categorización y abstracción, 
+    permitiendo que emergieran patrones sobre la toma de decisiones estéticas frente a las 
+    limitaciones materiales."
+  </p>
+  <p style="margin-top:10px;font-size:.7rem;color:#555553;">
+    📌 Estructura: Contexto → Muestreo Teórico → Recolección → Análisis Iterativo
+  </p>
+</div>
+<!-- ===== FINDINGS ===== -->
+<div class="pnl" id="p-findings">
+<div class="sh rv">
+<div class="over">Parte 03 — Resultados Emergentes</div>
+<h2>Los Hallazgos</h2>
+<div class="desc">Respuestas a la pregunta de investigación en 3–5 subsecciones, combinando figuras, citas, tablas y argumentación teórica.</div>
+<div class="src">📖 Gopaldas (2016, p. 119)</div>
+</div>
+<div class="g g3">
+<div class="c rv"><span class="cn">F</span>
+<h3><span class="d" style="background:var(--amber)"></span> Figuras</h3>
+<p>Representación visual del marco emergente. Conceptos clave y relaciones. Tropes: centro-periferia (dentro-fuera), macro-micro (arriba-abajo), antecedente-consecuencia (izquierda-derecha).</p>
+<div class="cr">Gopaldas (2016, p. 119)</div>
+</div>
+<div class="c rv"><span class="cn">Q</span>
+<h3><span class="d" style="background:var(--amber)"></span> Citas de Informantes</h3>
+<p><strong>In-line breve:</strong> palabra/frase dentro de la oración. <strong>In-line completa:</strong> oración del informante entre las del autor. <strong>Bloque:</strong> párrafo indentado. Incluir más texto del necesario; es más fácil recortar después.</p>
+<div class="cr">Gopaldas (2016, p. 119)</div>
+</div>
+<div class="c rv"><span class="cn">T</span>
+<h3><span class="d" style="background:var(--amber)"></span> Tablas</h3>
+<p>Datos adicionales con encabezados significativos y autoexplicativos. Terminología consistente entre tablas, figuras y texto.</p>
+<div class="cr">Gopaldas (2016, p. 119)</div>
+</div>
+</div>
+
+<div class="sh rv" style="margin-top:34px">
+<div class="over">Estrategias de Escritura</div>
+<h2>Teorización de Hallazgos</h2>
+<div class="desc">Combinar retóricamente observaciones con evidencia para construir argumentos. Los datos siempre están «sandwicheados» entre interpretación del autor.</div>
+<div class="src">📖 Gopaldas (2016, p. 119), citando Golden-Biddle & Locke (2007)</div>
+</div>
+<div class="sg">
+<div class="sc rv"><h4>Afirmación → Datos → Elaboración</h4><p>Claim teórica primero, evidencia empírica, luego justificación. <strong>Remate al inicio.</strong></p></div>
+<div class="sc rv"><h4>Expectativa → Datos → (Des)Confirmación</h4><p>Expectativas previas, datos que las abordan, confirmación o refutación. <strong>Remate al final.</strong></p></div>
+<div class="sc rv"><h4>Sándwich de Datos (Telling–Showing–Telling)</h4><p>Interpretación → Evidencia → Análisis. La evidencia empírica siempre enmarcada por la teoría del investigador.</p></div>
+</div>
+
+<!-- CHARTS -->
+<div class="sh rv" style="margin-top:38px">
+<div class="over">Visualización de Datos</div>
+<h2>Tipos de Gráficos para Resultados</h2>
+<div class="desc">Selección del gráfico adecuado según naturaleza de datos y objetivo comunicativo.</div>
+</div>
+
+<div class="clbl cq">01 · Datos Categóricos</div>
+<div class="cg">
+<div class="cc rv">
+<div class="ci"><svg viewBox="0 0 90 70"><rect x="6" y="50" width="12" height="16" rx="2" fill="#0072b9"/><rect x="22" y="32" width="12" height="34" rx="2" fill="#0072b9" opacity=".8"/><rect x="38" y="10" width="12" height="56" rx="2" fill="#f3a100"/><rect x="54" y="38" width="12" height="28" rx="2" fill="#0072b9" opacity=".6"/><rect x="70" y="46" width="12" height="20" rx="2" fill="#0072b9" opacity=".4"/><line x1="3" y1="66" x2="85" y2="66" stroke="#555" stroke-width=".5"/></svg></div>
+<div class="cb"><h4>Gráfico de Barras</h4><p>Compara cantidades entre categorías mediante longitud de barras. Comparación visual directa.</p></div>
+</div>
+<div class="cc rv">
+<div class="ci"><svg viewBox="0 0 90 70"><path d="M45,35 L45,8 A27,27 0 0,1 68,50 Z" fill="#f3a100"/><path d="M45,35 L68,50 A27,27 0 0,1 22,50 Z" fill="#0072b9"/><path d="M45,35 L22,50 A27,27 0 0,1 45,8 Z" fill="#555553"/></svg></div>
+<div class="cb"><h4>Gráfico Circular</h4><p>Proporciones de un todo. Efectivo con menos de 5 categorías y diferencias evidentes.</p></div>
+</div>
+</div>
+
+<div class="clbl cd">02 · Distribución Numérica</div>
+<div class="cg">
+<div class="cc rv">
+<div class="ci"><svg viewBox="0 0 90 70"><rect x="8" y="50" width="8" height="12" rx="1" fill="#f3a100" opacity=".4"/><rect x="18" y="40" width="8" height="22" rx="1" fill="#f3a100" opacity=".6"/><rect x="28" y="22" width="8" height="40" rx="1" fill="#f3a100" opacity=".8"/><rect x="38" y="10" width="8" height="52" rx="1" fill="#f3a100"/><rect x="48" y="26" width="8" height="36" rx="1" fill="#f3a100" opacity=".75"/><rect x="58" y="42" width="8" height="20" rx="1" fill="#f3a100" opacity=".5"/><rect x="68" y="52" width="8" height="10" rx="1" fill="#f3a100" opacity=".3"/><line x1="5" y1="62" x2="80" y2="62" stroke="#555" stroke-width=".5"/></svg></div>
+<div class="cb"><h4>Histograma</h4><p>Datos continuos en intervalos. Evalúa forma: normal, sesgada, bimodal.</p></div>
+</div>
+<div class="cc rv">
+<div class="ci"><svg viewBox="0 0 90 70"><line x1="25" y1="12" x2="25" y2="20" stroke="#0072b9" stroke-width="1.3"/><rect x="17" y="20" width="16" height="18" rx="2" fill="none" stroke="#0072b9" stroke-width="1.3"/><line x1="17" y1="30" x2="33" y2="30" stroke="#f3a100" stroke-width="2"/><line x1="25" y1="38" x2="25" y2="52" stroke="#0072b9" stroke-width="1.3"/><circle cx="25" cy="57" r="2" fill="#f3a100" opacity=".6"/><line x1="65" y1="8" x2="65" y2="18" stroke="#0072b9" stroke-width="1.3"/><rect x="57" y="18" width="16" height="22" rx="2" fill="none" stroke="#0072b9" stroke-width="1.3"/><line x1="57" y1="28" x2="73" y2="28" stroke="#f3a100" stroke-width="2"/><line x1="65" y1="40" x2="65" y2="55" stroke="#0072b9" stroke-width="1.3"/></svg></div>
+<div class="cb"><h4>Caja y Bigotes</h4><p>Cuartiles, mediana, rango intercuartílico, outliers. Comparar grupos.</p></div>
+</div>
+</div>
+
+<div class="clbl cr2">03 · Relaciones y Tendencias</div>
+<div class="cg">
+<div class="cc rv">
+<div class="ci"><svg viewBox="0 0 90 70"><line x1="8" y1="60" x2="85" y2="60" stroke="#555" stroke-width=".5"/><line x1="8" y1="6" x2="8" y2="60" stroke="#555" stroke-width=".5"/><polyline points="14,52 28,42 42,44 56,30 70,25 82,14" fill="none" stroke="#0072b9" stroke-width="1.8" stroke-linejoin="round"/><polyline points="14,55 28,50 42,47 56,40 70,36 82,30" fill="none" stroke="#f3a100" stroke-width="1.3" stroke-dasharray="4,2"/></svg></div>
+<div class="cb"><h4>Gráfico de Líneas</h4><p>Evolución temporal. Tendencias, aceleraciones, caídas.</p></div>
+</div>
+<div class="cc rv">
+<div class="ci"><svg viewBox="0 0 90 70"><line x1="8" y1="60" x2="85" y2="60" stroke="#555" stroke-width=".5"/><line x1="8" y1="6" x2="8" y2="60" stroke="#555" stroke-width=".5"/><circle cx="18" cy="50" r="3" fill="#0072b9" opacity=".7"/><circle cx="30" cy="42" r="3" fill="#f3a100" opacity=".8"/><circle cx="42" cy="34" r="3.5" fill="#0072b9" opacity=".7"/><circle cx="54" cy="26" r="4" fill="#f3a100"/><circle cx="66" cy="18" r="3" fill="#0072b9" opacity=".65"/><circle cx="78" cy="12" r="3" fill="#f3a100" opacity=".7"/><circle cx="35" cy="55" r="2" fill="#868686" opacity=".35"/><line x1="14" y1="54" x2="82" y2="10" stroke="#fff" stroke-width=".5" stroke-dasharray="3,2" opacity=".2"/></svg></div>
+<div class="cb"><h4>Diagrama de Dispersión</h4><p>Correlación entre dos variables. Directa, inversa o nula.</p></div>
+</div>
+</div>
+</div>
+
+
+<div style="margin-top:28px;background:rgba(243,161,0,.06);border:1px solid rgba(243,161,0,.25);
+            border-radius:14px;padding:24px 22px;">
+  <div style="font-size:.65rem;font-weight:800;color:#f3a100;letter-spacing:.12em;
+              text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+    <span style="width:20px;height:20px;border-radius:50%;background:rgba(243,161,0,.2);
+                 display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;">✍</span>
+    Ejemplo — "Afirmación · Datos · Elaboración" (Sándwich de datos)
+  </div>
+  <!-- 3 steps inline -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:16px;">
+    <div style="background:rgba(243,161,0,.08);border-radius:10px;padding:12px 14px;">
+      <div style="font-size:.65rem;font-weight:700;color:#f3a100;margin-bottom:6px;">① AFIRMACIÓN (Claim)</div>
+      <div style="font-size:.75rem;color:#c9c9c7;line-height:1.5;">
+        Los diseñadores utilizan las imperfecciones del material reciclado como estrategia de autenticidad de marca.
+      </div>
+    </div>
+    <div style="background:rgba(0,114,185,.08);border-radius:10px;padding:12px 14px;">
+      <div style="font-size:.65rem;font-weight:700;color:#0072b9;margin-bottom:6px;">② DATOS (Cita)</div>
+      <div style="font-size:.75rem;color:#c9c9c7;line-height:1.5;font-style:italic;">
+        "Al principio queríamos que la tela reciclada pareciera nueva, pero nos dimos cuenta de que 
+        las costuras asimétricas y los retazos visibles son exactamente lo que el cliente busca."
+      </div>
+    </div>
+    <div style="background:rgba(85,85,83,.15);border-radius:10px;padding:12px 14px;">
+      <div style="font-size:.65rem;font-weight:700;color:#aaa;margin-bottom:6px;">③ ELABORACIÓN</div>
+      <div style="font-size:.75rem;color:#c9c9c7;line-height:1.5;">
+        La variabilidad del reciclaje textil deja de ser un defecto de calidad para convertirse en el 
+        núcleo de la ventaja competitiva de la marca.
+      </div>
+    </div>
+  </div>
+  <p style="font-size:.7rem;color:#555553;">
+    📌 Plantilla replicable para: Narrativas Transmedia (AV) · Innovación Publicitaria · Diseño de Interiores
+  </p>
+</div>
+<!-- ===== BACKEND ===== -->
+<div class="pnl" id="p-backend">
+<div class="sh rv">
+<div class="over">Parte 04 — Discusión Final</div>
+<h2>El Backend</h2>
+<div class="desc">«Discusión» única o serie de secciones: resumen interpretativo, contribuciones, implicaciones, limitaciones y conclusión.</div>
+<div class="src">📖 Gopaldas (2016, p. 120)</div>
+</div>
+<div class="g g2">
+<div class="c rv"><span class="cn">P</span>
+<h3><span class="d" style="background:var(--blue)"></span> Contribuciones Primarias</h3>
+<p>Resumen interpretativo: pregunta y respuesta en lenguaje teórico, sin referencia al contexto empírico.</p>
+<div class="tip">«This section typically restates the research question and your study's answer in theoretical language.» — Gopaldas (2016, p. 120)</div>
+<div class="ptags"><span class="pt pub">Modelo semiótico de marca visual PYME</span><span class="pt int">Marco biofílico de bienestar perceptual</span><span class="pt av">Taxonomía IA-creatividad documental</span><span class="pt mod">Framework identidad cultural en moda emergente</span></div>
+</div>
+<div class="c rv"><span class="cn">S</span>
+<h3><span class="d" style="background:var(--blue)"></span> Contribuciones Secundarias</h3>
+<p>Implicaciones teóricas especulativas para otra literatura. Breve revisión de estado del arte antes de declarar aportes.</p>
+<div class="tip">«This study also [challenges, extends, or revises] existing theory on [another related phenomenon].» — Gopaldas (2016, p. 120)</div>
+</div>
+<div class="c rv"><span class="cn">I</span>
+<h3><span class="d" style="background:var(--amber)"></span> Implicaciones Prácticas</h3>
+<p>Recomendaciones accionables para stakeholders específicos. Qué hacen actualmente y cómo mejorar.</p>
+<div class="ptags"><span class="pt pub">Para directores creativos de agencias</span><span class="pt int">Para arquitectos y promotores inmobiliarios</span><span class="pt av">Para realizadores independientes</span><span class="pt mod">Para diseñadores emergentes y sourcing ético</span></div>
+<div class="cr">Gopaldas (2016, p. 120)</div>
+</div>
+<div class="c rv"><span class="cn">L</span>
+<h3><span class="d" style="background:var(--mid)"></span> Limitaciones y Oportunidades</h3>
+<p>Del contexto, recolección o perspectiva teórica. Especificar alternativas futuras. Las avenidas pueden inspirarse en las contribuciones del estudio.</p>
+<div class="cr">Gopaldas (2016, p. 120)</div>
+</div>
+</div>
+
+<div class="sh rv" style="margin-top:34px">
+<div class="over">Antes de Enviar</div>
+<h2>Toques Finales</h2>
+<div class="src">📖 Gopaldas (2016, pp. 120–121)</div>
+</div>
+<div class="fg">
+<div class="fc rv"><h4>Integración Front-to-Back</h4><p>¿Métodos, hallazgos y contribuciones fluyen de la pregunta? ¿Los hallazgos incorporan todos los datos de métodos? ¿Las motivaciones se realizan como contribuciones?</p></div>
+<div class="fc rv"><h4>Edición y Formato</h4><p>Adaptar a hoja de estilo de la revista. Considerar edición profesional: sustantiva, copy editing, proofreading.</p></div>
+<div class="fc rv"><h4>Revisión Amigable</h4><p>3–5 revisores en etapas. Compañeros, junior, no académicos. Diversos, exigentes, meticulosos. Si 2+ señalan lo mismo, tomarlo en serio.</p></div>
+</div>
+</div>
+
+
+<div style="margin-top:28px;background:rgba(0,114,185,.06);border:1px solid rgba(0,114,185,.25);
+            border-radius:14px;padding:24px 22px;">
+  <div style="font-size:.65rem;font-weight:800;color:#0072b9;letter-spacing:.12em;
+              text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+    <span style="width:20px;height:20px;border-radius:50%;background:rgba(0,114,185,.2);
+                 display:inline-flex;align-items:center;justify-content:center;font-size:.65rem;">✍</span>
+    Ejemplo de Redacción — Contribución + Implicancias Prácticas
+  </div>
+  <p style="font-size:.82rem;color:#c9c9c7;line-height:1.7;font-style:italic;
+            border-left:3px solid rgba(0,114,185,.35);padding-left:14px;margin:0 0 14px 0;">
+    "En términos de <strong style="color:#0072b9;">contribución teórica principal</strong>, este estudio 
+    extiende la literatura sobre innovación textil al demostrar que la adopción de prácticas sostenibles 
+    en microempresas no depende de la sofisticación tecnológica, sino de la 
+    <strong style="color:#f3a100;">resignificación estética de la escasez</strong>. Como implicación 
+    práctica, se recomienda a los gremios de moda y escuelas de diseño actualizar sus mallas curriculares, 
+    reemplazando los estándares de patronaje industrial tradicional por módulos de diseño basado en la 
+    adaptabilidad de mermas textiles. Una limitación de este estudio es su enfoque exclusivo en la fase 
+    de producción; futuras investigaciones deberían explorar cómo las narrativas digitales impactan la 
+    percepción de estas prendas en el consumidor final."
+  </p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;">
+    <div style="background:rgba(243,161,0,.07);border-radius:8px;padding:10px 12px;">
+      <div style="font-size:.65rem;font-weight:700;color:#f3a100;margin-bottom:4px;">Contribución Teórica</div>
+      <div style="font-size:.72rem;color:#868686;">Resignificación estética de la escasez como eje de innovación</div>
+    </div>
+    <div style="background:rgba(0,114,185,.07);border-radius:8px;padding:10px 12px;">
+      <div style="font-size:.65rem;font-weight:700;color:#0072b9;margin-bottom:4px;">Implicancia Práctica</div>
+      <div style="font-size:.72rem;color:#868686;">Currículos con módulos de diseño basado en adaptabilidad textil</div>
+    </div>
+    <div style="background:rgba(85,85,83,.12);border-radius:8px;padding:10px 12px;">
+      <div style="font-size:.65rem;font-weight:700;color:#aaa;margin-bottom:4px;">Limitación / Futuro</div>
+      <div style="font-size:.72rem;color:#868686;">Explorar narrativas digitales en percepción del consumidor</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     INVESTIGACIÓN EN DISEÑO — EFECTOS INTERACTIVOS
+     ═══════════════════════════════════════════════════════ -->
+<section id="efectos" style="padding:60px 24px 80px;max-width:1100px;margin:0 auto;">
+
+<div style="text-align:center;margin-bottom:52px;">
+  <span style="display:inline-block;background:rgba(243,161,0,.1);border:1px solid rgba(243,161,0,.3);
+               border-radius:50px;padding:5px 18px;font-size:.7rem;font-weight:700;
+               letter-spacing:.1em;color:#f3a100;text-transform:uppercase;margin-bottom:14px;">
+    Investigación Aplicada
+  </span>
+  <h2 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;
+             letter-spacing:-.03em;line-height:1.15;margin-bottom:12px;">
+    Casos de <span style="background:linear-gradient(135deg,#f3a100,#ff8800);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+    Investigación</span> por Carrera
+  </h2>
+  <p style="color:#868686;font-size:.87rem;max-width:640px;margin:0 auto;line-height:1.6;">
+    Ejemplos contextualizados con visualización estadística animada. Pasa el cursor sobre cada tarjeta y gráfico para explorar los datos.
+  </p>
+</div>
+
+<style>
+/* ── HOLOGRAPHIC CARD ──────────────────────────────── */
+.holo-card {
+  position:relative;overflow:hidden;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:28px 24px;cursor:pointer;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease;
+}
+.holo-card::before {
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(243,161,0,.18) 0%,rgba(0,114,185,.22) 40%,rgba(0,255,255,.15) 70%,rgba(243,161,0,.1) 100%);
+  opacity:0;transform:translateY(8px);
+  transition:opacity .4s ease,transform .4s ease;pointer-events:none;
+}
+.holo-card:hover {
+  transform:scale(1.035) translateY(-4px);
+  box-shadow:0 0 28px rgba(0,180,255,.35),0 8px 32px rgba(0,0,0,.4);
+}
+.holo-card:hover::before { opacity:1;transform:translateY(0); }
+.holo-card .hc-badge {
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:50px;font-size:.68rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;
+}
+.holo-card h3 { font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.98rem;font-weight:700;margin-bottom:8px; }
+.holo-card p  { font-size:.78rem;color:#868686;line-height:1.6;margin-bottom:16px; }
+
+/* ── LIQUID MORPH BUTTON ───────────────────────────── */
+.liq-btn {
+  position:relative;overflow:hidden;
+  border:none;outline:none;cursor:pointer;
+  padding:10px 20px;border-radius:12px;font-size:.75rem;font-weight:700;
+  color:#fff;background:#0a1628;
+  transition:border-radius .35s ease,transform .35s ease;
+}
+.liq-btn::before {
+  content:'';position:absolute;inset:-2px;
+  background:conic-gradient(from 180deg,#00d4ff,#0072b9,#f3a100,#00d4ff);
+  opacity:0;transition:opacity .35s ease;z-index:0;border-radius:inherit;
+}
+.liq-btn span { position:relative;z-index:1; }
+.liq-btn:hover { border-radius:6px;transform:rotate(-2deg) scale(1.06); }
+.liq-btn:hover::before { opacity:1; }
+
+/* ── EXPLODE TEXT ──────────────────────────────────── */
+.explode-text {
+  position:relative;display:inline-block;
+  font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.92rem;font-weight:800;
+  color:#f3a100;cursor:default;
+}
+.explode-text::before,.explode-text::after {
+  content:attr(data-text);position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(243,161,0,.9),rgba(0,114,185,.6));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  opacity:0;transform:scale(.9);
+  transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1);
+}
+.explode-text::after { transition-delay:.07s; }
+.explode-text:hover::before { opacity:1;transform:scale(1.12) rotate(-2deg); }
+.explode-text:hover::after  { opacity:.6;transform:scale(1.22) rotate(3deg); }
+
+/* ── UNDERLINE HOVER ───────────────────────────────── */
+.ul-hover {
+  position:relative;display:inline-block;
+  font-size:.8rem;font-weight:600;color:#ffffff;cursor:default;padding:2px 0;
+}
+.ul-hover::before,.ul-hover::after {
+  content:'';position:absolute;left:0;height:2px;width:0;
+  background:linear-gradient(90deg,#f3a100,#0072b9);
+  transition:width .4s cubic-bezier(.16,1,.3,1);
+}
+.ul-hover::before { top:0; }
+.ul-hover::after  { bottom:0;transition-delay:.08s; }
+.ul-hover:hover::before,.ul-hover:hover::after { width:100%; }
+
+/* ── DROPDOWN MENU ─────────────────────────────────── */
+.dd-wrap { position:relative;display:inline-block; }
+.dd-trigger {
+  background:rgba(0,114,185,.12);border:1px solid rgba(0,114,185,.3);
+  color:#0072b9;padding:7px 16px;border-radius:8px;
+  font-size:.75rem;font-weight:700;cursor:pointer;
+  transition:background .25s,border-color .25s;
+}
+.dd-trigger:hover { background:rgba(0,114,185,.22);border-color:#0072b9; }
+.dd-menu {
+  position:absolute;top:calc(100% + 8px);left:0;min-width:220px;
+  background:#1a1e2b;border:1px solid rgba(255,255,255,.1);border-radius:12px;
+  padding:6px;z-index:10;
+  opacity:0;transform:translateY(-8px);pointer-events:none;
+  transition:opacity .3s ease,transform .3s cubic-bezier(.16,1,.3,1);
+}
+.dd-wrap:hover .dd-menu { opacity:1;transform:translateY(0);pointer-events:auto; }
+.dd-item {
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;border-radius:8px;font-size:.75rem;color:#c9c9c7;
+  transition:background .2s,color .2s;cursor:default;
+}
+.dd-item:hover { background:rgba(243,161,0,.1);color:#f3a100; }
+.dd-dot { width:6px;height:6px;border-radius:50%;background:#f3a100;flex-shrink:0; }
+
+/* ── SVG CHARTS ────────────────────────────────────── */
+.chart-bar { transition:fill .3s,filter .3s; cursor:pointer; }
+.chart-bar:hover { filter:brightness(1.4) drop-shadow(0 0 6px rgba(243,161,0,.6)); }
+.bp-box { transition:stroke .3s; cursor:pointer; }
+.bp-box:hover { stroke:#f3a100 !important;filter:drop-shadow(0 0 6px rgba(243,161,0,.5)); }
+.line-path { stroke-dasharray:600;stroke-dashoffset:600;animation:drawLine 2s ease forwards; }
+@keyframes drawLine { to { stroke-dashoffset:0; } }
+.line-dot { transition:r .3s,fill .3s;cursor:pointer; }
+.line-dot:hover { r:6; fill:#f3a100; }
+
+/* tooltip */
+.svg-tip {
+  position:absolute;background:#1e2330;border:1px solid rgba(243,161,0,.3);
+  color:#f3a100;font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:7px;
+  pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;z-index:50;
+}
+
+/* cards grid */
+.efx-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px; }
+</style>
+
+<div class="efx-grid">
+
+<!-- ══ CARD 1 — DISEÑO DE MODAS (Holográfica) ══ -->
+<div class="holo-card">
+  <div class="hc-badge" style="background:rgba(243,161,0,.1);color:#f3a100;border:1px solid rgba(243,161,0,.2);">
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#f3a100" stroke-width="1.5"/><path d="M6 3v3l2 1" stroke="#f3a100" stroke-width="1.2" stroke-linecap="round"/></svg>
+    Diseño de Modas
+  </div>
+  <h3>Moda Sostenible & Upcycling en Lima</h3>
+  <p>Investigación cualitativa sobre tácticas de resignificación estética en talleres independientes. Muestreo teórico en 5 estudios, 15 entrevistas en profundidad.</p>
+
+  <!-- Bar Chart SVG -->
+  <div style="position:relative;">
+  <svg width="100%" viewBox="0 0 260 120" style="overflow:visible;">
+    <text x="0" y="10" fill="#868686" font-size="8" font-family="DM Sans,sans-serif">Percepción de Valor (escala 1–10)</text>
+    <!-- grid -->
+    <line x1="30" y1="15" x2="250" y2="15" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+    <line x1="30" y1="45" x2="250" y2="45" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+    <line x1="30" y1="75" x2="250" y2="75" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+    <line x1="30" y1="105" x2="250" y2="105" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+    <!-- y-axis labels -->
+    <text x="24" y="18" fill="#555553" font-size="7" text-anchor="end">10</text>
+    <text x="24" y="48" fill="#555553" font-size="7" text-anchor="end">7.5</text>
+    <text x="24" y="78" fill="#555553" font-size="7" text-anchor="end">5</text>
+    <text x="24" y="108" fill="#555553" font-size="7" text-anchor="end">2.5</text>
+    <!-- bars with animation -->
+    <rect class="chart-bar" data-tip="Industrial: 4.2" x="50" y="71.4" width="40" height="33.6" rx="4" fill="#555553">
+      <animate attributeName="y" from="105" to="71.4" dur=".8s" fill="freeze"/>
+      <animate attributeName="height" from="0" to="33.6" dur=".8s" fill="freeze"/>
+    </rect>
+    <rect class="chart-bar" data-tip="Upcycled: 9.1" x="140" y="17.8" width="40" height="87.2" rx="4" fill="#f3a100">
+      <animate attributeName="y" from="105" to="17.8" dur=".8s" begin=".2s" fill="freeze"/>
+      <animate attributeName="height" from="0" to="87.2" dur=".8s" begin=".2s" fill="freeze"/>
+    </rect>
+    <!-- x labels -->
+    <text x="70" y="116" fill="#868686" font-size="7.5" text-anchor="middle">Industrial</text>
+    <text x="160" y="116" fill="#868686" font-size="7.5" text-anchor="middle">Upcycled</text>
+  </svg>
+  <div class="svg-tip" id="tip-bar"></div>
+  </div>
+
+  <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="liq-btn"><span>Frontend: ¿Cómo resignifican la escasez?</span></button>
+  </div>
+</div>
+
+<!-- ══ CARD 2 — DISEÑO PUBLICITARIO (Explode + Boxplot) ══ -->
+<div class="holo-card">
+  <div class="hc-badge" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><polygon points="6,1 11,10 1,10" stroke="#0072b9" stroke-width="1.5" fill="none"/></svg>
+    Diseño Publicitario
+  </div>
+  <h3>
+    <span class="explode-text" data-text="Psicología del Color en Campañas Digitales">Psicología del Color en Campañas Digitales</span>
+  </h3>
+  <p>Análisis semiótico de respuesta emocional ante variaciones cromáticas en publicidad de PYMEs limeñas. Grupos focales (n=60) segmentados por rango etario.</p>
+
+  <!-- Boxplot SVG -->
+  <div style="position:relative;">
+  <svg width="100%" viewBox="0 0 260 120" style="overflow:visible;">
+    <text x="0" y="10" fill="#868686" font-size="8" font-family="DM Sans,sans-serif">Horas de Trabajo Manual (Boxplot)</text>
+    <!-- axis -->
+    <line x1="30" y1="105" x2="250" y2="105" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+    <!-- tick labels -->
+    <text x="30"  y="113" fill="#555553" font-size="7" text-anchor="middle">0h</text>
+    <text x="80"  y="113" fill="#555553" font-size="7" text-anchor="middle">10h</text>
+    <text x="130" y="113" fill="#555553" font-size="7" text-anchor="middle">20h</text>
+    <text x="180" y="113" fill="#555553" font-size="7" text-anchor="middle">30h</text>
+    <text x="230" y="113" fill="#555553" font-size="7" text-anchor="middle">40h</text>
+    <!-- box (Q1=4h→x=50, Q3=22h→x=140, median=8h→x=70) -->
+    <rect class="bp-box" x="50" y="45" width="90" height="40" rx="3" fill="rgba(0,114,185,.15)" stroke="#0072b9" stroke-width="1.5"/>
+    <!-- median line -->
+    <line x1="70" y1="45" x2="70" y2="85" stroke="#f3a100" stroke-width="2"/>
+    <!-- whiskers -->
+    <line x1="30" y1="65" x2="50" y2="65" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <line x1="140" y1="65" x2="193" y2="65" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <!-- outlier -->
+    <circle cx="205" cy="65" r="4" fill="none" stroke="#ff6b6b" stroke-width="1.5"/>
+    <text x="205" y="56" fill="#ff6b6b" font-size="7" text-anchor="middle">35h outlier</text>
+    <!-- labels -->
+    <text x="70" y="40" fill="#f3a100" font-size="7" text-anchor="middle">Mediana 8h</text>
+    <text x="96" y="100" fill="#0072b9" font-size="7" text-anchor="middle">RIQ: 4h–22h</text>
+  </svg>
+  </div>
+
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+    <span class="ul-hover">Claim: La saturación alta reduce engagement en adultos +40</span>
+    <span class="ul-hover">Data: "El rojo nos aleja, sentimos urgencia no deseo" — focus group</span>
+    <span class="ul-hover">Elaboración: Modulación cromática como variable de segmentación</span>
+  </div>
+</div>
+
+<!-- ══ CARD 3 — DISEÑO DE INTERIORES (Dropdown + Línea) ══ -->
+<div class="holo-card">
+  <div class="hc-badge" style="background:rgba(243,161,0,.08);color:#f3a100;border:1px solid rgba(243,161,0,.2);">
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><rect x="1.5" y="1.5" width="9" height="9" rx="1.5" stroke="#f3a100" stroke-width="1.5" fill="none"/><line x1="4" y1="6" x2="8" y2="6" stroke="#f3a100" stroke-width="1.2"/></svg>
+    Diseño de Interiores
+  </div>
+  <h3>Bienestar y Ergonomía en Espacios Comerciales</h3>
+  <p>Etnografía visual y escala Likert de confort percibido en 8 espacios retail de Lima. Evalúa variables: iluminación, temperatura y circulación.</p>
+
+  <!-- Line Chart SVG -->
+  <div style="position:relative;">
+  <svg width="100%" viewBox="0 0 260 120" style="overflow:visible;">
+    <text x="0" y="10" fill="#868686" font-size="8" font-family="DM Sans,sans-serif">Interés consumidor en diseño bioclimático (2022–2024)</text>
+    <!-- grid -->
+    <line x1="30" y1="20" x2="250" y2="20" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <line x1="30" y1="50" x2="250" y2="50" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <line x1="30" y1="80" x2="250" y2="80" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+    <line x1="30" y1="105" x2="250" y2="105" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+    <!-- y labels -->
+    <text x="26" y="23" fill="#555553" font-size="7" text-anchor="end">100</text>
+    <text x="26" y="53" fill="#555553" font-size="7" text-anchor="end">70</text>
+    <text x="26" y="83" fill="#555553" font-size="7" text-anchor="end">40</text>
+    <!-- line: 2022(40)→2023(65)→2024(88) mapped to y: 80→47→23 -->
+    <polyline class="line-path" points="50,80 150,47 240,23" fill="none" stroke="#0072b9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- area fill -->
+    <polygon points="50,80 150,47 240,23 240,105 50,105" fill="rgba(0,114,185,.08)"/>
+    <!-- dots -->
+    <circle class="line-dot" data-tip="2022: 40%" cx="50" cy="80" r="4" fill="#0072b9" stroke="#fff" stroke-width="1.5"/>
+    <circle class="line-dot" data-tip="2023: 65%" cx="150" cy="47" r="4" fill="#0072b9" stroke="#fff" stroke-width="1.5"/>
+    <circle class="line-dot" data-tip="2024: 88%" cx="240" cy="23" r="4" fill="#f3a100" stroke="#fff" stroke-width="1.5"/>
+    <!-- x labels -->
+    <text x="50"  y="115" fill="#868686" font-size="7.5" text-anchor="middle">2022</text>
+    <text x="150" y="115" fill="#868686" font-size="7.5" text-anchor="middle">2023</text>
+    <text x="240" y="115" fill="#868686" font-size="7.5" text-anchor="middle">2024</text>
+  </svg>
+  <div class="svg-tip" id="tip-dot"></div>
+  </div>
+
+  <div style="margin-top:14px;">
+    <div class="dd-wrap">
+      <button class="dd-trigger">▾ Líneas de Investigación — Interiores</button>
+      <div class="dd-menu">
+        <div class="dd-item"><span class="dd-dot"></span>Sostenibilidad en el diseño de interiores</div>
+        <div class="dd-item"><span class="dd-dot"></span>Diseño para espacios reducidos</div>
+        <div class="dd-item"><span class="dd-dot"></span>Tecnología y domótica</div>
+        <div class="dd-item"><span class="dd-dot"></span>Diseño inclusivo y accesible</div>
+        <div class="dd-item"><span class="dd-dot"></span>Bienestar y ergonomía comercial</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 4 — COMUNICACIÓN AUDIOVISUAL (Subrayado + Pie) ══ -->
+<div class="holo-card">
+  <div class="hc-badge" style="background:rgba(0,114,185,.08);color:#0072b9;border:1px solid rgba(0,114,185,.2);">
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><rect x="1" y="3" width="10" height="7" rx="1.5" stroke="#0072b9" stroke-width="1.5" fill="none"/><polyline points="8,3 8,1 4,1 4,3" stroke="#0072b9" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Comunicación Audiovisual
+  </div>
+  <h3>Narrativas Transmedia en Plataformas Digitales</h3>
+  <p>Netnografía de comunidades fandom en YouTube, TikTok e Instagram. Análisis de patrones narrativos convergentes en productoras emergentes peruanas.</p>
+
+  <!-- Pie / Donut SVG -->
+  <div style="position:relative;display:flex;align-items:center;gap:16px;">
+  <svg width="110" height="110" viewBox="0 0 110 110" style="flex-shrink:0;overflow:visible;">
+    <!-- donut arcs (YouTube 38%, TikTok 32%, IG 18%, Otros 12%) -->
+    <!-- total circumference at r=38: 2π×38 ≈ 238.76 -->
+    <!-- YouTube: 238.76×.38≈90.7, offset=0 -->
+    <circle cx="55" cy="55" r="38" fill="none" stroke="#f3a100" stroke-width="14"
+      stroke-dasharray="90.7 238.76" stroke-dashoffset="-59.69"
+      style="transition:stroke-width .3s,filter .3s;cursor:pointer;"
+      onmouseenter="this.style.strokeWidth='17';this.style.filter='drop-shadow(0 0 6px rgba(243,161,0,.7))'"
+      onmouseleave="this.style.strokeWidth='14';this.style.filter='none'">
+      <animate attributeName="stroke-dashoffset" from="238.76" to="-59.69" dur="1s" fill="freeze"/>
+    </circle>
+    <!-- TikTok: 238.76×.32≈76.4, offset=-(90.7+59.69)=-150.39 ... simplified approach -->
+    <circle cx="55" cy="55" r="38" fill="none" stroke="#0072b9" stroke-width="14"
+      stroke-dasharray="76.4 238.76" stroke-dashoffset="-153.7"
+      style="transition:stroke-width .3s,filter .3s;cursor:pointer;"
+      onmouseenter="this.style.strokeWidth='17';this.style.filter='drop-shadow(0 0 6px rgba(0,114,185,.7))'"
+      onmouseleave="this.style.strokeWidth='14';this.style.filter='none'">
+      <animate attributeName="stroke-dashoffset" from="238.76" to="-153.7" dur="1.1s" fill="freeze"/>
+    </circle>
+    <circle cx="55" cy="55" r="38" fill="none" stroke="#555553" stroke-width="14"
+      stroke-dasharray="42.97 238.76" stroke-dashoffset="-233.1"
+      style="transition:stroke-width .3s,filter .3s;cursor:pointer;"
+      onmouseenter="this.style.strokeWidth='17';this.style.filter='drop-shadow(0 0 6px rgba(85,85,83,.7))'"
+      onmouseleave="this.style.strokeWidth='14';this.style.filter='none'">
+      <animate attributeName="stroke-dashoffset" from="238.76" to="-233.1" dur="1.2s" fill="freeze"/>
+    </circle>
+    <circle cx="55" cy="55" r="38" fill="none" stroke="#868686" stroke-width="14"
+      stroke-dasharray="28.65 238.76" stroke-dashoffset="-279.1">
+      <animate attributeName="stroke-dashoffset" from="238.76" to="-279.1" dur="1.3s" fill="freeze"/>
+    </circle>
+    <text x="55" y="51" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle" font-family="Syne,sans-serif">Reach</text>
+    <text x="55" y="62" fill="#868686" font-size="7" text-anchor="middle">por plataforma</text>
+  </svg>
+  <div style="display:flex;flex-direction:column;gap:7px;font-size:.73rem;">
+    <div style="display:flex;align-items:center;gap:7px;"><span style="width:10px;height:10px;border-radius:50%;background:#f3a100;flex-shrink:0;"></span><span style="color:#c9c9c7;">YouTube <strong style="color:#f3a100;">38%</strong></span></div>
+    <div style="display:flex;align-items:center;gap:7px;"><span style="width:10px;height:10px;border-radius:50%;background:#0072b9;flex-shrink:0;"></span><span style="color:#c9c9c7;">TikTok <strong style="color:#0072b9;">32%</strong></span></div>
+    <div style="display:flex;align-items:center;gap:7px;"><span style="width:10px;height:10px;border-radius:50%;background:#555553;flex-shrink:0;"></span><span style="color:#c9c9c7;">Instagram <strong style="color:#aaa;">18%</strong></span></div>
+    <div style="display:flex;align-items:center;gap:7px;"><span style="width:10px;height:10px;border-radius:50%;background:#868686;flex-shrink:0;"></span><span style="color:#c9c9c7;">Otros <strong style="color:#868686;">12%</strong></span></div>
+  </div>
+  </div>
+
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+    <span class="ul-hover">Narrativas transmedia: fragmentación cross-platform</span>
+    <span class="ul-hover">Cine documental social: reach orgánico x2.4</span>
+    <span class="ul-hover">Postproducción: IA reduce costo 47% en producción indie</span>
+  </div>
+</div>
+
+</div><!-- /efx-grid -->
+
+<!-- ── Interactividad JS ─────────────────────────────── -->
+<script>
+(function(){
+  // Bar chart tooltip
+  document.querySelectorAll('.chart-bar').forEach(function(bar) {
+    bar.addEventListener('mouseenter', function(e) {
+      var tip = document.getElementById('tip-bar');
+      tip.textContent = bar.dataset.tip;
+      tip.style.opacity = '1';
+    });
+    bar.addEventListener('mousemove', function(e) {
+      var tip = document.getElementById('tip-bar');
+      var rect = tip.parentElement.getBoundingClientRect();
+      tip.style.left = (e.clientX - rect.left + 10) + 'px';
+      tip.style.top  = (e.clientY - rect.top  - 24) + 'px';
+    });
+    bar.addEventListener('mouseleave', function() {
+      document.getElementById('tip-bar').style.opacity = '0';
+    });
+  });
+
+  // Line dot tooltip
+  document.querySelectorAll('.line-dot').forEach(function(dot) {
+    dot.addEventListener('mouseenter', function(e) {
+      var tip = document.getElementById('tip-dot');
+      if (!tip) return;
+      tip.textContent = dot.dataset.tip;
+      tip.style.opacity = '1';
+    });
+    dot.addEventListener('mousemove', function(e) {
+      var tip = document.getElementById('tip-dot');
+      if (!tip) return;
+      var rect = tip.parentElement.getBoundingClientRect();
+      tip.style.left = (e.clientX - rect.left + 10) + 'px';
+      tip.style.top  = (e.clientY - rect.top  - 24) + 'px';
+    });
+    dot.addEventListener('mouseleave', function() {
+      var tip = document.getElementById('tip-dot');
+      if (tip) tip.style.opacity = '0';
+    });
+  });
+})();
+</script>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     INVESTIGACIÓN CUANTITATIVA — PROPUESTAS POR CARRERA
+     ═══════════════════════════════════════════════════════ -->
+
+<style>
+/* ── LEGIBILITY FIX: Replace Syne with Inter for all research card titles ── */
+.pq-title,
+.pq-card-title,
+.viz-card-title,
+.viz-block-title,
+#cuantitativa h2,
+#cuantitativa .pq-card-head .pq-title {
+  font-family: 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: -.02em !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+#cuantitativa h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.03em !important;
+}
+.pq-title {
+  font-size: .88rem !important;
+  font-weight: 700 !important;
+  color: #e8e8e6 !important;
+}
+.viz-card-title,
+.viz-block-title {
+  font-size: .9rem !important;
+}
+/* Keep Syne only for the top h3 badge headers (section separators) */
+#cuantitativa .pq-inner-grid .pq-card-head .pq-tag {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: .65rem !important;
+}
+/* gradient text on h2 inherits correctly */
+#cuantitativa h2 span[style*="background"] {
+  font-family: 'Inter', sans-serif !important;
+}
+</style>
+<section id="cuantitativa" style="padding:60px 24px 80px;max-width:1100px;margin:0 auto;">
+
+<style>
+/* ── PROPUESTA CARDS ─── */
+.pq-header-badge {
+  display:inline-block;background:rgba(0,114,185,.1);border:1px solid rgba(0,114,185,.3);
+  border-radius:50px;padding:5px 18px;font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;color:#0072b9;text-transform:uppercase;margin-bottom:14px;
+}
+.pq-card {
+  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);
+  border-radius:18px;padding:0;overflow:hidden;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease;
+  cursor:default;
+}
+.pq-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 16px 48px rgba(0,0,0,.45);
+}
+.pq-card-head {
+  padding:20px 22px 14px;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.pq-card-body { padding:16px 22px 20px; }
+.pq-tag {
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;border-radius:50px;font-size:.65rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;
+}
+.pq-title {
+  font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.92rem;font-weight:800;line-height:1.3;
+  margin-bottom:6px;
+}
+.pq-var {
+  display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;
+}
+.pq-chip {
+  font-size:.65rem;font-weight:600;padding:3px 9px;border-radius:50px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#868686;
+  transition:background .25s,color .25s,border-color .25s;cursor:default;
+}
+.pq-chip:hover { background:rgba(0,114,185,.15);color:#0072b9;border-color:rgba(0,114,185,.3); }
+.pq-meta { font-size:.72rem;color:#555553;line-height:1.6; }
+
+/* ── SVG MINI-CHARTS ─── */
+.pq-bar { transition:fill .3s,filter .3s;cursor:pointer; }
+.pq-bar:hover { filter:brightness(1.5) drop-shadow(0 0 5px rgba(243,161,0,.6)); }
+.pq-scatter { transition:r .3s,fill .3s,filter .3s;cursor:pointer; }
+.pq-scatter:hover { r:5;filter:drop-shadow(0 0 5px rgba(0,114,185,.7)); }
+.pq-linepath { stroke-dasharray:400;stroke-dashoffset:400; }
+.pq-linepath.animated { animation:pqDraw .9s ease forwards; }
+@keyframes pqDraw { to { stroke-dashoffset:0; } }
+.pq-boxrect { transition:stroke .3s,filter .3s;cursor:pointer; }
+.pq-boxrect:hover { stroke:#f3a100 !important;filter:drop-shadow(0 0 5px rgba(243,161,0,.5)); }
+
+/* ── GRID ─── */
+.pq-main-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:20px;
+}
+.pq-inner-grid {
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+@media(max-width:600px){.pq-inner-grid{grid-template-columns:1fr;}}
+
+/* ── TOOLTIP ─── */
+.pq-tip {
+  position:fixed;background:#1e2330;border:1px solid rgba(243,161,0,.3);
+  color:#f3a100;font-size:.68rem;font-weight:700;padding:5px 10px;
+  border-radius:7px;pointer-events:none;opacity:0;transition:opacity .15s;
+  white-space:nowrap;z-index:9999;
+}
+
+/* ── UL hover underline ─── */
+.pq-underline {
+  position:relative;display:inline-block;
+  font-size:.74rem;color:#c9c9c7;cursor:default;padding:1px 0;
+}
+.pq-underline::after {
+  content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;
+  background:linear-gradient(90deg,#f3a100,#0072b9);
+  transition:width .35s cubic-bezier(.16,1,.3,1);
+}
+.pq-underline:hover::after { width:100%; }
+.pq-underline:hover { color:#fff; }
+</style>
+
+<!-- Encabezado de sección -->
+<div style="text-align:center;margin-bottom:52px;">
+  <span class="pq-header-badge">Investigación Cuantitativa</span>
+  <h2 style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;
+             letter-spacing:-.03em;line-height:1.15;margin-bottom:12px;">
+    Propuestas de Investigación
+    <span style="background:linear-gradient(135deg,#0072b9,#00c6ff);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+    Cuantitativa 2026</span>
+  </h2>
+  <p style="color:#868686;font-size:.87rem;max-width:680px;margin:0 auto;line-height:1.6;">
+    12 propuestas contextualizadas en tendencias actuales de diseño y comunicación, con diseño metodológico, variables y visualización estadística animada. Pasa el cursor sobre los gráficos y chips para explorar.
+  </p>
+</div>
+
+<!-- ════ DISEÑO DE INTERIORES ════ -->
+<div style="margin-bottom:40px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+    <div style="flex:1;height:1px;background:rgba(243,161,0,.2);"></div>
+    <span style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.82rem;font-weight:700;color:#f3a100;white-space:nowrap;">🏠 Diseño de Interiores</span>
+    <div style="flex:1;height:1px;background:rgba(243,161,0,.2);"></div>
+  </div>
+  <div class="pq-inner-grid">
+
+    <!-- P1 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(243,161,0,.1);color:#f3a100;border:1px solid rgba(243,161,0,.2);">Correlacional · Encuesta</div>
+        <div class="pq-title">Domótica e iluminación circadiana: impacto en productividad de trabajadores en oficinas de Lima Metropolitana</div>
+        <div class="pq-var">
+          <span class="pq-chip">Iluminación adaptativa</span><span class="pq-chip">Productividad</span><span class="pq-chip">Escala Likert</span><span class="pq-chip">n=150</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <svg width="100%" viewBox="0 0 200 80" style="overflow:visible;margin-bottom:8px;">
+          <text x="0" y="9" fill="#868686" font-size="6.5" font-family="DM Sans,sans-serif">Correlación iluminación–productividad (r=.71)</text>
+          <!-- scatter -->
+          <circle class="pq-scatter" data-t="Ilum. baja: 3.2" cx="30" cy="62" r="3.5" fill="#555553"/>
+          <circle class="pq-scatter" data-t="Ilum. media: 5.8" cx="60" cy="44" r="3.5" fill="#555553"/>
+          <circle class="pq-scatter" data-t="Ilum. alta: 7.4" cx="90" cy="30" r="3.5" fill="#0072b9"/>
+          <circle class="pq-scatter" data-t="Ilum. adaptativa: 9.1" cx="130" cy="18" r="3.5" fill="#f3a100"/>
+          <circle class="pq-scatter" data-t="Control total: 9.6" cx="165" cy="14" r="3.5" fill="#f3a100"/>
+          <!-- trend line -->
+          <line x1="20" y1="68" x2="175" y2="12" stroke="rgba(243,161,0,.4)" stroke-width="1" stroke-dasharray="3,2"/>
+          <!-- axes -->
+          <line x1="20" y1="72" x2="185" y2="72" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <line x1="20" y1="10" x2="20" y2="72" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <text x="100" y="80" fill="#555553" font-size="6" text-anchor="middle">Nivel de Control Domótico →</text>
+          <text x="8" y="45" fill="#555553" font-size="6" text-anchor="middle" transform="rotate(-90,8,45)">Productividad</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span class="pq-underline">Hipótesis: H₁ existe correlación positiva significativa (r>.5, p&lt;.05)</span>
+          <span class="pq-underline">Instrumento: Escala de Productividad Percibida (EPA-12 ítems)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(243,161,0,.1);color:#f3a100;border:1px solid rgba(243,161,0,.2);">Experimental · Pre-Post</div>
+        <div class="pq-title">Biofilia y reducción de estrés: medición psicofisiológica en espacios de coworking con vegetación vertical</div>
+        <div class="pq-var">
+          <span class="pq-chip">Cortisol salival</span><span class="pq-chip">FC reposo</span><span class="pq-chip">Escala PSS</span><span class="pq-chip">GC/GE</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <svg width="100%" viewBox="0 0 200 80" style="overflow:visible;margin-bottom:8px;">
+          <text x="0" y="9" fill="#868686" font-size="6.5" font-family="DM Sans,sans-serif">Nivel de estrés Pre vs Post (escala PSS)</text>
+          <!-- grouped bars Pre/Post GE/GC -->
+          <rect class="pq-bar" data-t="GC Pre: 6.8" x="20" y="30" width="20" height="40" rx="3" fill="#555553">
+            <animate attributeName="y" from="70" to="30" dur=".7s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="40" dur=".7s" fill="freeze"/>
+          </rect>
+          <rect class="pq-bar" data-t="GC Post: 6.2" x="44" y="34" width="20" height="36" rx="3" fill="#868686">
+            <animate attributeName="y" from="70" to="34" dur=".7s" begin=".1s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="36" dur=".7s" begin=".1s" fill="freeze"/>
+          </rect>
+          <rect class="pq-bar" data-t="GE Pre: 6.9" x="90" y="29" width="20" height="41" rx="3" fill="#0072b9">
+            <animate attributeName="y" from="70" to="29" dur=".7s" begin=".2s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="41" dur=".7s" begin=".2s" fill="freeze"/>
+          </rect>
+          <rect class="pq-bar" data-t="GE Post: 3.1" x="114" y="53" width="20" height="17" rx="3" fill="#f3a100">
+            <animate attributeName="y" from="70" to="53" dur=".7s" begin=".3s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="17" dur=".7s" begin=".3s" fill="freeze"/>
+          </rect>
+          <line x1="10" y1="70" x2="190" y2="70" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <!-- legend -->
+          <rect x="140" y="20" width="7" height="7" fill="#0072b9" rx="1"/>
+          <text x="150" y="27" fill="#868686" font-size="6">G. Experimental</text>
+          <rect x="140" y="32" width="7" height="7" fill="#555553" rx="1"/>
+          <text x="150" y="39" fill="#868686" font-size="6">G. Control</text>
+          <text x="35" y="79" fill="#555553" font-size="6" text-anchor="middle">Control</text>
+          <text x="105" y="79" fill="#555553" font-size="6" text-anchor="middle">Experimental</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span class="pq-underline">Diseño: cuasi-experimental, 2 grupos, medición pre-post test</span>
+          <span class="pq-underline">Análisis: ANCOVA, t-Student, tamaño de efecto Cohen's d</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ DISEÑO PUBLICITARIO ════ -->
+<div style="margin-bottom:40px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+    <div style="flex:1;height:1px;background:rgba(0,114,185,.2);"></div>
+    <span style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.82rem;font-weight:700;color:#0072b9;white-space:nowrap;">📣 Diseño Publicitario</span>
+    <div style="flex:1;height:1px;background:rgba(0,114,185,.2);"></div>
+  </div>
+  <div class="pq-inner-grid">
+
+    <!-- P3 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">Descriptivo-Correlacional</div>
+        <div class="pq-title">Eficacia del branding emocional en PYMEs: métricas de engagement según paleta cromática en Instagram</div>
+        <div class="pq-var">
+          <span class="pq-chip">Engagement rate</span><span class="pq-chip">Temperatura color</span><span class="pq-chip">CTR</span><span class="pq-chip">n=200 posts</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <svg width="100%" viewBox="0 0 200 80" style="overflow:visible;margin-bottom:8px;">
+          <text x="0" y="9" fill="#868686" font-size="6.5" font-family="DM Sans,sans-serif">Engagement rate promedio por temperatura de color (%)</text>
+          <rect class="pq-bar" data-t="Fría: 2.1%" x="15" y="51" width="24" height="19" rx="3" fill="#0072b9">
+            <animate attributeName="y" from="70" to="51" dur=".8s" fill="freeze"/><animate attributeName="height" from="0" to="19" dur=".8s" fill="freeze"/>
+          </rect>
+          <rect class="pq-bar" data-t="Neutra: 3.4%" x="50" y="39" width="24" height="31" rx="3" fill="#555553">
+            <animate attributeName="y" from="70" to="39" dur=".8s" begin=".1s" fill="freeze"/><animate attributeName="height" from="0" to="31" dur=".8s" begin=".1s" fill="freeze"/>
+          </rect>
+          <rect class="pq-bar" data-t="Cálida: 5.7%" x="85" y="19" width="24" height="51" rx="3" fill="#f3a100">
+            <animate attributeName="y" from="70" to="19" dur=".8s" begin=".2s" fill="freeze"/><animate attributeName="height" from="0" to="51" dur=".8s" begin=".2s" fill="freeze"/>
+          </rect>
+          <rect class="pq-bar" data-t="Contraste alto: 6.8%" x="120" y="9" width="24" height="61" rx="3" fill="#ff8c00">
+            <animate attributeName="y" from="70" to="9" dur=".8s" begin=".3s" fill="freeze"/><animate attributeName="height" from="0" to="61" dur=".8s" begin=".3s" fill="freeze"/>
+          </rect>
+          <line x1="10" y1="70" x2="190" y2="70" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <text x="27" y="79" fill="#555553" font-size="5.5" text-anchor="middle">Fría</text>
+          <text x="62" y="79" fill="#555553" font-size="5.5" text-anchor="middle">Neutra</text>
+          <text x="97" y="79" fill="#555553" font-size="5.5" text-anchor="middle">Cálida</text>
+          <text x="132" y="79" fill="#555553" font-size="5.5" text-anchor="middle">Alto contraste</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span class="pq-underline">Variables: temperatura cromática (°K) → engagement rate, CTR, saves</span>
+          <span class="pq-underline">Análisis: ANOVA de un factor, prueba de Tukey, η²</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">Comparativo · Longitudinal</div>
+        <div class="pq-title">IA generativa en la producción publicitaria: variación en tiempos, costos y valoración creativa de agencias limeñas 2023–2026</div>
+        <div class="pq-var">
+          <span class="pq-chip">Tiempo ciclo</span><span class="pq-chip">Costo/hora</span><span class="pq-chip">NPS creativo</span><span class="pq-chip">Panel n=30</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <svg width="100%" viewBox="0 0 200 80" style="overflow:visible;margin-bottom:8px;">
+          <text x="0" y="9" fill="#868686" font-size="6.5" font-family="DM Sans,sans-serif">Reducción costo producción con IA (% base 2023)</text>
+          <!-- line 2023→2024→2025→2026 -->
+          <polyline class="pq-linepath animated" points="20,62 70,48 130,28 180,14" fill="none" stroke="#0072b9" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="20,62 70,48 130,28 180,14 180,70 20,70" fill="rgba(0,114,185,.07)"/>
+          <circle class="pq-scatter" data-t="2023: base 0%" cx="20" cy="62" r="3.5" fill="#555553" stroke="#fff" stroke-width="1"/>
+          <circle class="pq-scatter" data-t="2024: -18%" cx="70" cy="48" r="3.5" fill="#0072b9" stroke="#fff" stroke-width="1"/>
+          <circle class="pq-scatter" data-t="2025: -35%" cx="130" cy="28" r="3.5" fill="#0072b9" stroke="#fff" stroke-width="1"/>
+          <circle class="pq-scatter" data-t="2026: -52%" cx="180" cy="14" r="3.5" fill="#f3a100" stroke="#fff" stroke-width="1"/>
+          <line x1="15" y1="70" x2="190" y2="70" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <text x="20" y="78" fill="#555553" font-size="5.5" text-anchor="middle">2023</text>
+          <text x="70" y="78" fill="#555553" font-size="5.5" text-anchor="middle">2024</text>
+          <text x="130" y="78" fill="#555553" font-size="5.5" text-anchor="middle">2025</text>
+          <text x="180" y="78" fill="#555553" font-size="5.5" text-anchor="middle">2026</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span class="pq-underline">Diseño: panel longitudinal de agencias (n=30), mediciones anuales</span>
+          <span class="pq-underline">Análisis: ANOVA medidas repetidas, regresión lineal simple</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pq-card" style="grid-column:1/-1;">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">Experimental A/B · Digital</div>
+        <div class="pq-title">Tipografía y percepción de confianza de marca: experimento A/B en landing pages de e-commerce local</div>
+        <div class="pq-var">
+          <span class="pq-chip">Serif vs Sans-serif</span><span class="pq-chip">Tasa conversión</span><span class="pq-chip">Eye-tracking</span><span class="pq-chip">Tiempo sesión</span><span class="pq-chip">n=500</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-bottom:18px;">
+          <div style="flex:0 0 auto;">
+            <p style="font-size:.68rem;color:#868686;margin-bottom:6px;">Tasa de conversión por tipografía (%)</p>
+            <svg width="260" height="115" viewBox="0 0 260 110" style="overflow:visible;">
+              <rect class="pq-boxrect" x="30" y="22" width="70" height="60" rx="4" fill="rgba(243,161,0,.1)" stroke="#f3a100" stroke-width="1.8"/>
+              <line x1="30" y1="52" x2="100" y2="52" stroke="#f3a100" stroke-width="2.5"/>
+              <line x1="65" y1="10" x2="65" y2="22" stroke="#fff" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="65" y1="82" x2="65" y2="95" stroke="#fff" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="53" y1="10" x2="77" y2="10" stroke="#fff" stroke-width="1.2"/>
+              <line x1="53" y1="95" x2="77" y2="95" stroke="#fff" stroke-width="1.2"/>
+              <text x="65" y="108" fill="#f3a100" font-size="8.5" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">Serif</text>
+              <text x="65" y="7" fill="#f3a100" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">Med: 4.8%</text>
+              <rect class="pq-boxrect" x="160" y="35" width="70" height="45" rx="4" fill="rgba(0,114,185,.1)" stroke="#0072b9" stroke-width="1.8"/>
+              <line x1="160" y1="56" x2="230" y2="56" stroke="#0072b9" stroke-width="2.5"/>
+              <line x1="195" y1="22" x2="195" y2="35" stroke="#fff" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="195" y1="80" x2="195" y2="90" stroke="#fff" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="183" y1="22" x2="207" y2="22" stroke="#fff" stroke-width="1.2"/>
+              <line x1="183" y1="90" x2="207" y2="90" stroke="#fff" stroke-width="1.2"/>
+              <text x="195" y="108" fill="#0072b9" font-size="8.5" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">Sans-serif</text>
+              <text x="195" y="18" fill="#0072b9" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">Med: 3.6%</text>
+              <text x="130" y="4" fill="#868686" font-size="6.5" text-anchor="middle" font-family="DM Sans,sans-serif">p&lt;.01 · d=0.52</text>
+            </svg>
+          </div>
+          <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:7px;justify-content:center;">
+            <span class="pq-underline">Hipótesis: tipografías serif generan mayor confianza y conversión en e-commerce de moda</span>
+            <span class="pq-underline">Instrumento: heatmap eye-tracking + cuestionario de confianza (STS-10)</span>
+            <span class="pq-underline">Análisis: Chi-cuadrado, prueba U Mann-Whitney, Cohen's d=0.52</span>
+            <span class="pq-underline">Relevancia: vincula tipografía IDC al comportamiento digital real en moda e-commerce</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:14px;">
+          <p style="font-size:.68rem;font-weight:700;color:#0072b9;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Referencias bibliográficas vinculadas</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;">
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Vecino-Braña et al. (2022)</strong> — How does serif vs sans serif typeface impact the usability of e-commerce websites? <em style="color:#868686;">PeerJ Computer Science</em>, 8, e1139. <a href="https://doi.org/10.7717/peerj-cs.1139" target="_blank" style="color:#0072b9;font-size:.7rem;">DOI: 10.7717/peerj-cs.1139</a></p>
+            </div>
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Larson &amp; Picard (2005)</strong> — The aesthetics of reading. <em style="color:#868686;">Human-Computer Interaction Consortium / MIT AgeLab.</em> Tipografía y credibilidad percibida. <a href="https://affect.media.mit.edu/pdfs/05.larson-picard.pdf" target="_blank" style="color:#0072b9;font-size:.7rem;">PDF MIT</a></p>
+            </div>
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Shaikh et al. (2006)</strong> — The Effect of Typeface on the Perception of E-mail. <em style="color:#868686;">Usability News, 8(1).</em> Confianza tipográfica en entornos digitales. <a href="https://usabilitynews.org/the-effect-of-typeface-on-the-perception-of-email/" target="_blank" style="color:#0072b9;font-size:.7rem;">usabilitynews.org</a></p>
+            </div>
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Sequra.com (2024)</strong> — Aumenta la conversión en tu tienda de moda con técnicas de A/B testing. Herramientas: Google Optimize, Optimizely, VWO aplicadas a e-commerce de moda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ DISEÑO DE MODAS ════ -->
+<div style="margin-bottom:40px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+    <div style="flex:1;height:1px;background:rgba(243,161,0,.2);"></div>
+    <span style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.82rem;font-weight:700;color:#f3a100;white-space:nowrap;">👗 Diseño de Modas</span>
+    <div style="flex:1;height:1px;background:rgba(243,161,0,.2);"></div>
+  </div>
+  <div class="pq-inner-grid">
+
+    <!-- P6 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(243,161,0,.1);color:#f3a100;border:1px solid rgba(243,161,0,.2);">Descriptivo · Encuesta</div>
+        <div class="pq-title">Disposición a pagar por moda sostenible según generación y nivel socioeconómico en Lima 2026</div>
+        <div class="pq-var">
+          <span class="pq-chip">WTP (Willingness-to-Pay)</span><span class="pq-chip">NSE</span><span class="pq-chip">Generación</span><span class="pq-chip">n=380</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <svg width="100%" viewBox="0 0 200 85" style="overflow:visible;margin-bottom:8px;">
+          <text x="0" y="9" fill="#868686" font-size="6.5" font-family="DM Sans,sans-serif">% Dispuesto a pagar +20% por etiqueta sostenible</text>
+          <!-- horizontal bars -->
+          <text x="28" y="24" fill="#868686" font-size="6.5" text-anchor="end">Gen Z</text>
+          <rect class="pq-bar" data-t="Gen Z: 78%" x="32" y="15" width="93.6" height="12" rx="2" fill="#f3a100">
+            <animate attributeName="width" from="0" to="93.6" dur=".8s" fill="freeze"/>
+          </rect>
+          <text x="128" y="24" fill="#f3a100" font-size="6" font-weight="700">78%</text>
+
+          <text x="28" y="41" fill="#868686" font-size="6.5" text-anchor="end">Millennial</text>
+          <rect class="pq-bar" data-t="Millennial: 61%" x="32" y="32" width="73.2" height="12" rx="2" fill="#f3a100" fill-opacity=".7">
+            <animate attributeName="width" from="0" to="73.2" dur=".8s" begin=".1s" fill="freeze"/>
+          </rect>
+          <text x="108" y="41" fill="#868686" font-size="6" font-weight="700">61%</text>
+
+          <text x="28" y="58" fill="#868686" font-size="6.5" text-anchor="end">Gen X</text>
+          <rect class="pq-bar" data-t="Gen X: 44%" x="32" y="49" width="52.8" height="12" rx="2" fill="#555553">
+            <animate attributeName="width" from="0" to="52.8" dur=".8s" begin=".2s" fill="freeze"/>
+          </rect>
+          <text x="88" y="58" fill="#868686" font-size="6" font-weight="700">44%</text>
+
+          <text x="28" y="75" fill="#868686" font-size="6.5" text-anchor="end">Boomer</text>
+          <rect class="pq-bar" data-t="Boomer: 29%" x="32" y="66" width="34.8" height="12" rx="2" fill="#555553" fill-opacity=".6">
+            <animate attributeName="width" from="0" to="34.8" dur=".8s" begin=".3s" fill="freeze"/>
+          </rect>
+          <text x="70" y="75" fill="#555553" font-size="6" font-weight="700">29%</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span class="pq-underline">Hipótesis: WTP varía significativamente entre generaciones (H=Kruskal-Wallis)</span>
+          <span class="pq-underline">Muestreo estratificado por distrito y NSE (A/B/C/D)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P7 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(243,161,0,.1);color:#f3a100;border:1px solid rgba(243,161,0,.2);">Cuantitativo · Experimental</div>
+        <div class="pq-title">Percepción de calidad textil en prendas upcycled: análisis de varianza por tipo de acabado y precio declarado</div>
+        <div class="pq-var">
+          <span class="pq-chip">Escala de percepción</span>
+          <span class="pq-chip">Precio señuelo</span>
+          <span class="pq-chip">ANOVA 2×3</span>
+          <span class="pq-chip">n=180</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <p style="font-size:.68rem;color:#868686;margin-bottom:10px;">Calidad percibida × Acabado × Precio declarado (media 1–10)</p>
+        <svg width="100%" viewBox="0 0 280 160" style="overflow:visible;display:block;max-width:400px;margin-bottom:10px;">
+          <!-- Axes -->
+          <line x1="40" y1="10" x2="40" y2="130" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <line x1="40" y1="130" x2="270" y2="130" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <!-- Y labels -->
+          <text x="36" y="133" fill="#555553" font-size="7.5" text-anchor="end" font-family="Inter,sans-serif">0</text>
+          <text x="36" y="105" fill="#555553" font-size="7.5" text-anchor="end" font-family="Inter,sans-serif">3</text>
+          <text x="36" y="77"  fill="#555553" font-size="7.5" text-anchor="end" font-family="Inter,sans-serif">6</text>
+          <text x="36" y="49"  fill="#555553" font-size="7.5" text-anchor="end" font-family="Inter,sans-serif">8</text>
+          <text x="36" y="21"  fill="#555553" font-size="7.5" text-anchor="end" font-family="Inter,sans-serif">10</text>
+          <!-- Gridlines -->
+          <line x1="40" y1="105" x2="270" y2="105" stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="40" y1="77"  x2="270" y2="77"  stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="40" y1="49"  x2="270" y2="49"  stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- BAR Rústico: Med 4.2 → y=130-(4.2/10*120)=79.6→h=50.4 -->
+          <rect class="pq-bar" data-t="Rústico · Med 4.2/10" x="55" y="80" width="36" height="50" rx="4"
+                fill="rgba(85,85,83,.55)" stroke="#555553" stroke-width="1.5">
+            <animate attributeName="y" from="130" to="80" dur=".7s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="50" dur=".7s" fill="freeze"/>
+          </rect>
+          <text x="73" y="76" fill="#868686" font-size="8.5" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">4.2</text>
+          <text x="73" y="144" fill="#868686" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">Rústico</text>
+
+          <!-- BAR Premium: Med 7.8 → y=130-(7.8/10*120)=36.4→h=93.6 -->
+          <rect class="pq-bar" data-t="Premium · Med 7.8/10" x="120" y="37" width="36" height="93" rx="4"
+                fill="rgba(0,114,185,.6)" stroke="#0072b9" stroke-width="1.5">
+            <animate attributeName="y" from="130" to="37" dur=".7s" begin=".1s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="93" dur=".7s" begin=".1s" fill="freeze"/>
+          </rect>
+          <text x="138" y="32" fill="#0072b9" font-size="8.5" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">7.8</text>
+          <text x="138" y="144" fill="#0072b9" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">Premium</text>
+
+          <!-- BAR Precio Alto: Med 9.1 → y=130-(9.1/10*120)=20.8→h=109.2 -->
+          <rect class="pq-bar" data-t="Premium + Precio Alto · Med 9.1/10 — efecto Veblen" x="185" y="21" width="36" height="109" rx="4"
+                fill="#f3a100">
+            <animate attributeName="y" from="130" to="21" dur=".7s" begin=".2s" fill="freeze"/>
+            <animate attributeName="height" from="0" to="109" dur=".7s" begin=".2s" fill="freeze"/>
+          </rect>
+          <text x="203" y="16" fill="#f3a100" font-size="8.5" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">9.1</text>
+          <text x="203" y="144" fill="#f3a100" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">P. Alto</text>
+
+          <!-- Significance bracket Rústico → Premium -->
+          <line x1="73" y1="68" x2="138" y2="68" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <line x1="73" y1="68" x2="73" y2="74" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <line x1="138" y1="68" x2="138" y2="37" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <text x="105" y="65" fill="#555553" font-size="7" text-anchor="middle" font-family="Inter,sans-serif">p&lt;.01</text>
+
+          <!-- Significance bracket Premium → P.Alto -->
+          <line x1="138" y1="26" x2="203" y2="26" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <line x1="203" y1="26" x2="203" y2="21" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+          <text x="170" y="21" fill="#f3a100" font-size="7" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">p&lt;.001</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:5px;margin-top:4px;">
+          <span class="pq-underline">Diseño factorial 2(acabado) × 3(precio): efecto Veblen en moda sostenible</span>
+          <span class="pq-underline">A mayor precio señuelo, mayor calidad percibida independiente del acabado real</span>
+          <span class="pq-underline">Análisis: ANOVA bifactorial, η² parcial, prueba de Bonferroni</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ COMUNICACIÓN AUDIOVISUAL ════ -->
+<div style="margin-bottom:20px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+    <div style="flex:1;height:1px;background:rgba(0,114,185,.2);"></div>
+    <span style="font-family:'Inter','DM Sans',system-ui,sans-serif;font-size:.82rem;font-weight:700;color:#0072b9;white-space:nowrap;">🎬 Comunicación Audiovisual</span>
+    <div style="flex:1;height:1px;background:rgba(0,114,185,.2);"></div>
+  </div>
+  <div class="pq-inner-grid">
+
+    <!-- P8 -->
+    <div class="pq-card">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">Correlacional · Analítica</div>
+        <div class="pq-title">Métricas de retención en contenido documental social: análisis de 500 videos en YouTube Perú (2024–2026)</div>
+        <div class="pq-var">
+          <span class="pq-chip">Average View Duration</span><span class="pq-chip">CTR thumbnail</span><span class="pq-chip">Like/Dislike ratio</span><span class="pq-chip">n=500</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <svg width="100%" viewBox="0 0 200 80" style="overflow:visible;margin-bottom:8px;">
+          <text x="0" y="9" fill="#868686" font-size="6.5" font-family="DM Sans,sans-serif">Retención promedio por duración de video (%)</text>
+          <!-- scatter: duración vs retención -->
+          <circle class="pq-scatter" data-t="&lt;3min: 72%" cx="30" cy="20" r="3" fill="#f3a100"/>
+          <circle class="pq-scatter" data-t="3–7min: 58%" cx="60" cy="32" r="3" fill="#f3a100"/>
+          <circle class="pq-scatter" data-t="7–12min: 44%" cx="95" cy="44" r="3" fill="#0072b9"/>
+          <circle class="pq-scatter" data-t="12–20min: 31%" cx="130" cy="55" r="3" fill="#0072b9"/>
+          <circle class="pq-scatter" data-t=">20min: 19%" cx="165" cy="64" r="3" fill="#555553"/>
+          <!-- trend -->
+          <line x1="20" y1="16" x2="178" y2="67" stroke="rgba(243,161,0,.35)" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="15" y1="70" x2="185" y2="70" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <line x1="15" y1="10" x2="15" y2="70" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <text x="100" y="79" fill="#555553" font-size="6" text-anchor="middle">Duración del video →</text>
+          <text x="7" y="42" fill="#555553" font-size="6" transform="rotate(-90,7,42)" text-anchor="middle">Retención</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <span class="pq-underline">Método: web scraping API YouTube + regresión lineal múltiple</span>
+          <span class="pq-underline">Variables control: hora publicación, temática, formato thumbnail</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- P9 -->
+    <div class="pq-card" style="grid-column:1/-1;">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">Cuantitativo · Transversal</div>
+        <div class="pq-title">Impacto de la postproducción con IA en la percepción de calidad cinematográfica en estudiantes de diseño</div>
+        <div class="pq-var">
+          <span class="pq-chip">Escala de calidad percibida</span>
+          <span class="pq-chip">Test ciego</span>
+          <span class="pq-chip">t-Student</span>
+          <span class="pq-chip">n=120</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;margin-bottom:18px;">
+          <!-- GRÁFICO GRANDE -->
+          <div style="flex:0 0 auto;">
+            <p style="font-size:.72rem;color:#868686;margin-bottom:10px;font-family:Inter,sans-serif;">Calidad percibida: IA vs Postproducción Tradicional (escala 1–10)</p>
+            <svg width="340" height="180" viewBox="0 0 340 170" style="overflow:visible;display:block;">
+              <!-- axes -->
+              <line x1="60" y1="10" x2="60" y2="145" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+              <line x1="60" y1="145" x2="310" y2="145" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+              <!-- Y gridlines & labels -->
+              <line x1="58" y1="145" x2="310" y2="145" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="54" y="148" fill="#555553" font-size="9" text-anchor="end" font-family="Inter,sans-serif">1</text>
+              <line x1="58" y1="118" x2="310" y2="118" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="54" y="121" fill="#555553" font-size="9" text-anchor="end" font-family="Inter,sans-serif">4</text>
+              <line x1="58" y1="91" x2="310" y2="91" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="54" y="94" fill="#555553" font-size="9" text-anchor="end" font-family="Inter,sans-serif">7</text>
+              <line x1="58" y1="64" x2="310" y2="64" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="54" y="67" fill="#555553" font-size="9" text-anchor="end" font-family="Inter,sans-serif">9</text>
+              <line x1="58" y1="37" x2="310" y2="37" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="54" y="40" fill="#555553" font-size="9" text-anchor="end" font-family="Inter,sans-serif">10</text>
+
+              <!-- BOXPLOT Tradicional -->
+              <!-- whisker bottom -->
+              <line x1="115" y1="136" x2="115" y2="125" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <line x1="106" y1="136" x2="124" y2="136" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <!-- IQR box -->
+              <rect class="pq-boxrect" x="85" y="78" width="60" height="47" rx="5"
+                    fill="rgba(85,85,83,.25)" stroke="#868686" stroke-width="2"/>
+              <!-- median line -->
+              <line x1="85" y1="105" x2="145" y2="105" stroke="#fff" stroke-width="2.5"/>
+              <!-- whisker top -->
+              <line x1="115" y1="78" x2="115" y2="60" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <line x1="106" y1="60" x2="124" y2="60" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <!-- label -->
+              <text x="115" y="162" fill="#868686" font-size="10" text-anchor="middle" font-weight="600" font-family="Inter,sans-serif">Tradicional</text>
+              <text x="115" y="174" fill="#868686" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">Med: 6.9</text>
+
+              <!-- BOXPLOT IA -->
+              <!-- whisker bottom -->
+              <line x1="235" y1="118" x2="235" y2="108" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <line x1="226" y1="118" x2="244" y2="118" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <!-- IQR box -->
+              <rect class="pq-boxrect" x="205" y="55" width="60" height="53" rx="5"
+                    fill="rgba(0,114,185,.18)" stroke="#0072b9" stroke-width="2"/>
+              <!-- median line -->
+              <line x1="205" y1="78" x2="265" y2="78" stroke="#0072b9" stroke-width="2.5"/>
+              <!-- whisker top -->
+              <line x1="235" y1="55" x2="235" y2="38" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <line x1="226" y1="38" x2="244" y2="38" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <!-- label -->
+              <text x="235" y="162" fill="#0072b9" font-size="10" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">IA</text>
+              <text x="235" y="174" fill="#0072b9" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">Med: 8.3</text>
+
+              <!-- significance bracket -->
+              <line x1="115" y1="28" x2="235" y2="28" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+              <line x1="115" y1="28" x2="115" y2="35" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+              <line x1="235" y1="28" x2="235" y2="35" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+              <text x="175" y="23" fill="#f3a100" font-size="9" text-anchor="middle" font-weight="700" font-family="Inter,sans-serif">** p&lt;.001</text>
+              <text x="175" y="14" fill="#868686" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">d de Cohen = 0.71 (efecto grande)</text>
+            </svg>
+          </div>
+          <!-- METODOLOGÍA -->
+          <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:8px;justify-content:center;">
+            <span class="pq-underline">Diseño: test ciego doble, asignación aleatoria de estímulos audiovisuales (n=120 estudiantes)</span>
+            <span class="pq-underline">Análisis: t-Student para muestras independientes; d de Cohen=0.71 → efecto grande</span>
+            <span class="pq-underline">Diferencia de medianas: +1.4 puntos (8.3 vs 6.9) en favor de postproducción con IA</span>
+            <span class="pq-underline">Implicación: la IA en postproducción eleva percepción de calidad sin que el observador identifique el proceso</span>
+          </div>
+        </div>
+        <!-- Referencias -->
+        <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:14px;">
+          <p style="font-size:.68rem;font-weight:700;color:#0072b9;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Referencias bibliográficas vinculadas</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;">
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Zaldívar-Colado et al. (2024)</strong> — "Inteligencia artificial y creatividad cinematográfica." <em style="color:#868686;">RIST</em>, 58. IA en guiones, VFX y postproducción. <a href="https://doi.org/10.36867/rist.v58i0.20" target="_blank" style="color:#0072b9;font-size:.7rem;">DOI: 10.36867/rist.v58i0.20</a></p>
+            </div>
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">ESAN (2025)</strong> — "El impacto de la IA en la industria cinematográfica." Cinelytic proyecta 85%+ de precisión en pronóstico de taquilla. IA mejora color grading, edición y personalización de contenido.</p>
+            </div>
+            <div style="background:rgba(0,114,185,.06);border-radius:8px;padding:10px 12px;border-left:2px solid #0072b9;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Mastermedia (2023)</strong> — "El futuro de la postproducción audiovisual." Software IA realiza color grading automático entre grupos de vídeos; reduce tiempos de edición y accesibiliza la producción de calidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><div class="pq-card" style="grid-column:1/-1;">
+      <div class="pq-card-head">
+        <div class="pq-tag" style="background:rgba(0,114,185,.1);color:#0072b9;border:1px solid rgba(0,114,185,.2);">Predictivo · Series de Tiempo</div>
+        <div class="pq-title">Predicción de viralidad en contenido transmedia: modelo de regresión múltiple con variables de producción en TikTok e Instagram Reels 2024–2026</div>
+        <div class="pq-var">
+          <span class="pq-chip">Shares / Saves</span>
+          <span class="pq-chip">Hook Rate (3s)</span>
+          <span class="pq-chip">Audio trending</span>
+          <span class="pq-chip">Color grade</span>
+          <span class="pq-chip">n=1000 clips</span>
+        </div>
+      </div>
+      <div class="pq-card-body">
+        <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;margin-bottom:18px;">
+          <div style="flex:0 0 auto;max-width:100%;">
+            <p style="font-size:.72rem;color:#868686;margin-bottom:10px;font-family:Inter,sans-serif;">
+              Peso de variables predictoras — β estandarizado (escala 0–1) · R²=.76
+            </p>
+            <!-- CHART: pure horizontal bars, labels LEFT outside bar, β value RIGHT outside bar -->
+            <div style="display:flex;flex-direction:column;gap:10px;width:100%;max-width:520px;">
+
+              <!-- Row 1 -->
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:.8rem;font-weight:600;color:#c9c9c7;font-family:Inter,sans-serif;min-width:120px;text-align:right;flex-shrink:0;">Hook Rate 3s</span>
+                <div style="flex:1;background:rgba(255,255,255,.06);border-radius:50px;height:20px;overflow:hidden;position:relative;">
+                  <div style="width:85%;height:100%;background:#f3a100;border-radius:50px;
+                               animation:growBar .8s ease forwards;transform-origin:left;">
+                  </div>
+                </div>
+                <span style="font-size:.85rem;font-weight:800;color:#f3a100;font-family:Inter,sans-serif;min-width:38px;">β=.68</span>
+              </div>
+
+              <!-- Row 2 -->
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:.8rem;font-weight:600;color:#c9c9c7;font-family:Inter,sans-serif;min-width:120px;text-align:right;flex-shrink:0;">Audio trending</span>
+                <div style="flex:1;background:rgba(255,255,255,.06);border-radius:50px;height:20px;overflow:hidden;">
+                  <div style="width:67.5%;height:100%;background:#0072b9;border-radius:50px;
+                               animation:growBar .8s .1s ease forwards;"></div>
+                </div>
+                <span style="font-size:.85rem;font-weight:800;color:#0072b9;font-family:Inter,sans-serif;min-width:38px;">β=.54</span>
+              </div>
+
+              <!-- Row 3 -->
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:.8rem;font-weight:600;color:#c9c9c7;font-family:Inter,sans-serif;min-width:120px;text-align:right;flex-shrink:0;">Color grade cálido</span>
+                <div style="flex:1;background:rgba(255,255,255,.06);border-radius:50px;height:20px;overflow:hidden;">
+                  <div style="width:51.25%;height:100%;background:#555553;border-radius:50px;
+                               animation:growBar .8s .2s ease forwards;"></div>
+                </div>
+                <span style="font-size:.85rem;font-weight:700;color:#868686;font-family:Inter,sans-serif;min-width:38px;">β=.41</span>
+              </div>
+
+              <!-- Row 4 -->
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:.8rem;font-weight:600;color:#c9c9c7;font-family:Inter,sans-serif;min-width:120px;text-align:right;flex-shrink:0;">Duración (≤15s)</span>
+                <div style="flex:1;background:rgba(255,255,255,.06);border-radius:50px;height:20px;overflow:hidden;">
+                  <div style="width:47.5%;height:100%;background:#555553;border-radius:50px;opacity:.7;
+                               animation:growBar .8s .3s ease forwards;"></div>
+                </div>
+                <span style="font-size:.85rem;font-weight:700;color:#555553;font-family:Inter,sans-serif;min-width:38px;">β=.38</span>
+              </div>
+
+              <!-- Row 5 -->
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:.8rem;font-weight:600;color:#c9c9c7;font-family:Inter,sans-serif;min-width:120px;text-align:right;flex-shrink:0;">Subtítulos (CC)</span>
+                <div style="flex:1;background:rgba(255,255,255,.06);border-radius:50px;height:20px;overflow:hidden;">
+                  <div style="width:33.75%;height:100%;background:#555553;border-radius:50px;opacity:.45;
+                               animation:growBar .8s .4s ease forwards;"></div>
+                </div>
+                <span style="font-size:.85rem;font-weight:600;color:#555553;font-family:Inter,sans-serif;min-width:38px;">β=.27</span>
+              </div>
+
+              <!-- Scale -->
+              <div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
+                <span style="min-width:120px;flex-shrink:0;"></span>
+                <div style="flex:1;display:flex;justify-content:space-between;padding:0 2px;">
+                  <span style="font-size:.68rem;color:#555553;font-family:Inter,sans-serif;">0</span>
+                  <span style="font-size:.68rem;color:#555553;font-family:Inter,sans-serif;">.25</span>
+                  <span style="font-size:.68rem;color:#555553;font-family:Inter,sans-serif;">.50</span>
+                  <span style="font-size:.68rem;color:#555553;font-family:Inter,sans-serif;">.75</span>
+                  <span style="font-size:.68rem;color:#f3a100;font-weight:700;font-family:Inter,sans-serif;">1.0 →</span>
+                </div>
+                <span style="min-width:38px;"></span>
+              </div>
+            </div>
+
+            <style>
+            @keyframes growBar {
+              from { transform: scaleX(0); }
+              to   { transform: scaleX(1); }
+            }
+            </style>
+          </div>
+
+          <!-- METODOLOGÍA -->
+          <div style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:8px;justify-content:center;">
+            <span class="pq-underline">Modelo R²=.76 — 76% de varianza de viralidad explicada por las 5 variables</span>
+            <span class="pq-underline">Hook Rate 3s (β=.68): retención en primeros 3s es el predictor dominante</span>
+            <span class="pq-underline">Recolección: API TikTok Research + Meta Analytics (n=1.000 clips, Lima 2024–2026)</span>
+            <span class="pq-underline">Aplicación: guía de producción basada en evidencia para productoras emergentes Lima</span>
+          </div>
+        </div>
+
+        <!-- Referencias -->
+        <div style="border-top:1px solid rgba(255,255,255,.07);padding-top:14px;">
+          <p style="font-size:.68rem;font-weight:700;color:#f3a100;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Referencias bibliográficas vinculadas</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;">
+            <div style="background:rgba(243,161,0,.05);border-radius:8px;padding:10px 12px;border-left:2px solid #f3a100;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Rondeau Cadarso (2022)</strong> — "Predicción de la viralidad de un vídeo en TikTok." <em style="color:#868686;">Universidad Europea, TFG.</em> Modelo ML de predicción de viralidad. <a href="https://hdl.handle.net/20.500.12880/3422" target="_blank" style="color:#f3a100;font-size:.7rem;">HDL: 20.500.12880/3422</a></p>
+            </div>
+            <div style="background:rgba(243,161,0,.05);border-radius:8px;padding:10px 12px;border-left:2px solid #f3a100;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Cheng et al. (2014)</strong> — "Can cascades be predicted?" <em style="color:#868686;">Proc. WWW.</em> Predicción de viralidad. <a href="https://doi.org/10.1145/2566486.2567997" target="_blank" style="color:#f3a100;font-size:.7rem;">DOI: 10.1145/2566486.2567997</a></p>
+            </div>
+            <div style="background:rgba(243,161,0,.05);border-radius:8px;padding:10px 12px;border-left:2px solid #f3a100;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Bärtl (2018)</strong> — "YouTube channels, uploads and views." <em style="color:#868686;">Convergence, 24(1).</em> Métricas de retención y engagement en video digital. <a href="https://doi.org/10.1177/1354856517736979" target="_blank" style="color:#f3a100;font-size:.7rem;">DOI: 10.1177/1354856517736979</a></p>
+            </div>
+            <div style="background:rgba(243,161,0,.05);border-radius:8px;padding:10px 12px;border-left:2px solid #f3a100;">
+              <p style="font-size:.72rem;color:#c9c9c7;line-height:1.5;"><strong style="color:#fff;">Toulouselautrec (2025)</strong> — "La expansión de la industria audiovisual en Perú." Mercado digital audiovisual peruano proyectado en $108M para 2025. Marco contextual para investigación transmedia emergente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+<!-- Tooltip global -->
+<div class="pq-tip" id="pq-global-tip"></div>
+
+<script>
+(function(){
+  var tip = document.getElementById('pq-global-tip');
+  function showTip(e, text){
+    tip.textContent = text;
+    tip.style.opacity = '1';
+    moveTip(e);
+  }
+  function moveTip(e){
+    tip.style.left = (e.clientX + 14) + 'px';
+    tip.style.top  = (e.clientY - 28) + 'px';
+  }
+  function hideTip(){ tip.style.opacity = '0'; }
+
+  document.querySelectorAll('.pq-bar, .pq-scatter').forEach(function(el){
+    el.addEventListener('mouseenter', function(e){ showTip(e, el.dataset.t || ''); });
+    el.addEventListener('mousemove', moveTip);
+    el.addEventListener('mouseleave', hideTip);
+  });
+
+  // Trigger line animations on scroll into view
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('animated');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.3});
+  document.querySelectorAll('.pq-linepath').forEach(function(el){ observer.observe(el); });
+})();
+</script>
+
+</section>
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<!-- FOOTER -->
+<div class="ft">
+<div class="brand">Unidad de Investigación del IDC</div>
+<div class="unit">Instituto de Educación Superior Público Diseño y Comunicación · d3magindesign</div>
+<div class="refs">
+<h5>Referencias Bibliográficas</h5>
+<p>Belk, R., Fischer, E. & Kozinets, R.V. (2013). <em>Qualitative Consumer and Marketing Research.</em> Sage.</p>
+<p>Denzin, N.K. & Lincoln, Y.S. (2011). <em>The SAGE Handbook of Qualitative Research.</em> Sage.</p>
+<p>Golden-Biddle, K. & Locke, K. (1993). Appealing work. <em>Organization Science</em>, 4(4), 595–616.</p>
+<p>Golden-Biddle, K. & Locke, K. (2007). <em>Composing Qualitative Research.</em> Sage.</p>
+<p>Gopaldas, A. (2016). A front-to-back guide to writing a qualitative research article. <em>Qualitative Market Research</em>, 19(1), 115–121. <a href="https://doi.org/10.1108/QMR-08-2015-0074" target="_blank" style="color:#0072b9;font-size:.7rem;">DOI: 10.1108/QMR-08-2015-0074</a></p>
+<p>Locke, K. & Golden-Biddle, K. (1997). Constructing opportunities for contribution. <em>AMJ</em>, 40(5), 1023–1062.</p>
+<p>Spiggle, S. (1994). Analysis and interpretation of qualitative data. <em>JCR</em>, 21(3), 491–503.</p>
+<p>Whetten, D.A. (1989). What constitutes a theoretical contribution? <em>AMR</em>, 14(4), 490–495.</p>
+<p>Yin, R.K. (2010). <em>Qualitative Research from Start to Finish.</em> Guilford Press.</p>
+</div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// TABS
+document.querySelectorAll('.ntab').forEach(t=>{
+t.addEventListener('click',()=>{
+const id=t.dataset.p;
+document.querySelectorAll('.ntab').forEach(b=>b.classList.remove('on'));
+t.classList.add('on');
+document.querySelectorAll('.pnl').forEach(p=>{
+p.classList.remove('on');
+if(p.id==='p-'+id){
+p.classList.add('on');
+p.querySelectorAll('.rv').forEach((el,i)=>{el.classList.remove('vis');setTimeout(()=>el.classList.add('vis'),50*i)});
+}
+});
+window.scrollTo({top:document.querySelector('.nav').offsetTop,behavior:'smooth'});
+});
+});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
+
+<footer style="background:#0a0a09;border-top:1px solid rgba(255,255,255,.06);padding:32px 24px;margin-top:0;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <span style="font-size:.75rem;font-weight:700;color:#f3a100;font-family:'DM Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;"></span>
+      <span style="font-size:.72rem;color:#c9c9c7;font-family:'DM Sans',sans-serif;"></span>
+      <span style="font-size:.72rem;color:#c9c9c7;font-family:'DM Sans',sans-serif;"><strong>Docente:</strong> Mg. Mario Quiroz Martínez</span>
+      <span style="font-size:.72rem;color:#c9c9c7;font-family:'DM Sans',sans-serif;"><strong>Año:</strong> 2026</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
+      <span style="font-size:.68rem;color:#555553;font-family:'DM Sans',sans-serif;">Líneas de Investigación IDC · Diseño Interiores · Diseño Publicitario · Diseño de Modas · Comunicación Audiovisual</span>
+      <span style="font-size:.65rem;color:#555553;font-family:'DM Sans',sans-serif;">Infografía académica interactiva generada con metodología Gopaldas (2016)</span>
+    </div>
+  </div>
+</footer>
